@@ -53,7 +53,7 @@ export default function GithubAccessForm() {
 
   useEffect(() => {
     if (paramProjectID) {
-      const p = products.find((item) => item.id == Number(paramProjectID));
+      const p = products.find((item) => item.id == paramProjectID);
       if (p) {
         setSelectedProduct(p);
         form.reset({
