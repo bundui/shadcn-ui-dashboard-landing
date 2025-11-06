@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/:path*", "destination": "https://dashboard.shadcnuidashboard.com/:path*" }
+    { "source": "/:path*", "destination": "https://nextjs-dashboard.shadcnuidashboard.com/:path*" }
   ]
 }
