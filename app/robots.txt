@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shadcnadmin.com/sitemap.xml
+Sitemap: https://shadcnuidashboard.com/sitemap.xml
