@@ -29,7 +29,6 @@ export const sidebarData: SidebarGroup[] = [
     items: [
       {
         title: "Ecommerce",
-        url: "/ecommerce",
         icon: IconDashboard,
         items: [
           {
@@ -56,7 +55,6 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "CRM",
-        url: "/crm",
         icon: IconDashboard,
         items: [
           {
@@ -95,7 +93,6 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "Social Network",
-        url: "/social-network",
         icon: IconFolder,
         items: [
           {
@@ -120,7 +117,6 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "Education",
-        url: "/education",
         icon: IconFolder,
         items: [
           {
@@ -135,7 +131,6 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "Real Estate",
-        url: "/real-estate",
         icon: IconFolder,
         items: [
           {
@@ -159,7 +154,6 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "User",
-        url: "/user",
         icon: IconChartBar,
         items: [
           {
