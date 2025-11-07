@@ -4,13 +4,13 @@ import { sidebarData } from "@/@data/sidebar";
 export default function sitemap(): MetadataRoute.Sitemap {
   const pageRoutesLinks: MetadataRoute.Sitemap = [];
 
-  sidebarData.navMain.forEach(({ items }) => {
+  sidebarData.forEach(({ items }) => {
     items.forEach((route) => {
       if (route.url) {
         pageRoutesLinks.push({
           url: `${process.env.BASE_URL}${route.url}`,
           lastModified: new Date(),
-          changeFrequency: "daily",
+          changeFrequency: "weekly",
           priority: 1
         });
       }
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           pageRoutesLinks.push({
             url: `${process.env.BASE_URL}${route.url}`,
             lastModified: new Date(),
-            changeFrequency: "daily",
+            changeFrequency: "weekly",
             priority: 1
           });
         });
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${process.env.BASE_URL}`,
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 1
     },
     ...pageRoutesLinks
