@@ -2,15 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { GroupImperativeHandle } from "react-resizable-panels";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   type ViewportDevice,
-  useComponentDevicePreviewStore,
+  useComponentDevicePreviewStore
 } from "@/store/component-device-preview";
 import { useBlockThemeStore } from "@/store/block-theme";
 import { buildThemeMessagesFromState } from "@/app/generator/lib/build-theme-messages";
@@ -21,7 +17,7 @@ import { Spinner } from "@/components/ui/spinner";
 const VIEWPORT_WIDTH: Record<ViewportDevice, number> = {
   mobile: 375,
   tablet: 768,
-  desktop: 0,
+  desktop: 0
 };
 
 const PRESET_TOLERANCE_PX = 4;
@@ -40,13 +36,13 @@ export default function ComponentIframe({
   id,
   url,
   viewportKey,
-  contentPadding,
+  contentPadding
 }: ComponentIframeProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const panelGroupRef = useRef<GroupImperativeHandle | null>(null);
   const device = useComponentDevicePreviewStore((s) =>
-    viewportKey ? s.getDevice(viewportKey) : "desktop",
+    viewportKey ? s.getDevice(viewportKey) : "desktop"
   );
   const setDevice = useComponentDevicePreviewStore((s) => s.setDevice);
 
@@ -59,9 +55,7 @@ export default function ComponentIframe({
   const responsive = searchParams?.get("responsive") !== "false";
   const isMobile = useIsMobile();
 
-  const [height, setHeight] = useState(
-    customHeight ? `${customHeight}px` : "300px",
-  );
+  const [height, setHeight] = useState(customHeight ? `${customHeight}px` : "300px");
   const [isReady, setIsReady] = useState(Boolean(customHeight));
 
   const applyDeviceLayout = useCallback((targetDevice: ViewportDevice) => {
@@ -70,13 +64,11 @@ export default function ComponentIframe({
     if (!container?.offsetWidth || !panelGroup) return;
 
     const targetPx =
-      VIEWPORT_WIDTH[targetDevice] === 0
-        ? container.offsetWidth
-        : VIEWPORT_WIDTH[targetDevice];
+      VIEWPORT_WIDTH[targetDevice] === 0 ? container.offsetWidth : VIEWPORT_WIDTH[targetDevice];
     const percent = Math.min((targetPx / container.offsetWidth) * 100, 100);
     panelGroup.setLayout({
       [PANEL_MAIN_ID]: percent,
-      [PANEL_SPACER_ID]: 100 - percent,
+      [PANEL_SPACER_ID]: 100 - percent
     });
   }, []);
 
@@ -114,7 +106,7 @@ export default function ComponentIframe({
 
     if (pageThemeSave) {
       buildThemeMessagesFromState(pageThemeSave.state, isDark).forEach((msg) =>
-        win.postMessage(msg, "*"),
+        win.postMessage(msg, "*")
       );
     } else {
       win.postMessage({ type: "theme", value: isDark ? "dark" : "light" }, "*");
@@ -124,12 +116,23 @@ export default function ComponentIframe({
   const handleLayout = useCallback(
     (layout: { [panelId: string]: number }) => {
       if (!viewportKey || !containerRef.current) return;
+      const containerW = containerRef.current.offsetWidth;
       const mainPercent = layout[PANEL_MAIN_ID] ?? 100;
-      const px = Math.round((mainPercent / 100) * containerRef.current.offsetWidth);
+      const spacerPercent = layout[PANEL_SPACER_ID] ?? 0;
+      const px = Math.round((mainPercent / 100) * containerW);
+
+      // Full-width layout: spacer is ~0. If we only match px to preset widths, a
+      // ~768px or ~375px *container* wrongly maps to tablet/mobile and overwrites
+      // an explicit "desktop" selection from the toolbar (width looks unchanged).
+      const hasSpacer = spacerPercent > 0.5;
+      if (!hasSpacer && mainPercent > 99) {
+        setDevice(viewportKey, "desktop");
+        return;
+      }
+
       const match = (["mobile", "tablet", "desktop"] as const).find(
         (key) =>
-          VIEWPORT_WIDTH[key] !== 0 &&
-          Math.abs(VIEWPORT_WIDTH[key] - px) < PRESET_TOLERANCE_PX,
+          VIEWPORT_WIDTH[key] !== 0 && Math.abs(VIEWPORT_WIDTH[key] - px) < PRESET_TOLERANCE_PX
       );
       if (match) {
         setDevice(viewportKey, match);
@@ -137,26 +140,21 @@ export default function ComponentIframe({
         setDevice(viewportKey, "desktop");
       }
     },
-    [viewportKey, setDevice],
+    [viewportKey, setDevice]
   );
 
   return (
-    <div
-      ref={containerRef}
-      className="mx-auto w-full border-t transition-[max-width] duration-200"
-    >
+    <div ref={containerRef} className="mx-auto w-full border-t transition-[max-width] duration-200">
       <ResizablePanelGroup
         groupRef={panelGroupRef}
         orientation="horizontal"
         className="w-full overflow-visible! rounded-lg border-e-0"
-        onLayoutChanged={handleLayout}
-      >
+        onLayoutChanged={handleLayout}>
         <ResizablePanel
           id={PANEL_MAIN_ID}
           defaultSize={100}
           minSize={27}
-          className={cn("-me-0.5 border-e", contentPadding && "p-4")}
-        >
+          className={cn("-me-0.5 border-e")}>
           <div className="relative w-full" style={{ height }}>
             {!isReady && (
               <div className="absolute inset-0 flex items-center justify-center">
@@ -171,9 +169,7 @@ export default function ComponentIframe({
             />
           </div>
         </ResizablePanel>
-        {!isMobile && responsive && (
-          <ResizableHandle withHandle className="bg-transparent" />
-        )}
+        {!isMobile && responsive && <ResizableHandle withHandle className="bg-transparent" />}
         <ResizablePanel id={PANEL_SPACER_ID} defaultSize={0} minSize={0} />
       </ResizablePanelGroup>
     </div>

@@ -41,21 +41,27 @@ export default function DemoPageGenerator() {
     const path = params.get("path");
     const iframeId = path ? path.split("/").filter(Boolean).at(-1) : null;
 
-    const sendHeight = () => {
-      const height = document.body.scrollHeight;
+    const measure = () => {
+      const wrapper = document.getElementById("demo-wrapper");
+      const height = wrapper ? wrapper.scrollHeight : document.body.scrollHeight;
       window.parent.postMessage({ type: "setHeight", height, iframeId }, "*");
     };
 
+    const sendHeight = () => requestAnimationFrame(measure);
+
     sendHeight();
-    const interval = setInterval(sendHeight, 300);
+    const interval = setInterval(measure, 300);
     setTimeout(() => clearInterval(interval), 2000);
 
     const observer = new ResizeObserver(sendHeight);
-    observer.observe(document.body);
+    observer.observe(document.getElementById("demo-wrapper") ?? document.body);
+
+    window.addEventListener("resize", sendHeight);
 
     return () => {
       observer.disconnect();
       clearInterval(interval);
+      window.removeEventListener("resize", sendHeight);
     };
   }, []);
 
@@ -113,34 +119,36 @@ export default function DemoPageGenerator() {
 
   const responsive = searchParams.get("responsive") === "true";
   const customHeight = searchParams.get("height");
+  const customStyle = searchParams.get("customStyle") === "true";
 
   return (
     <div
+      id="demo-wrapper"
       className={cn("items-center justify-center", {
+        "bg-muted/60 px-4 lg:px-8 py-4 lg:py-10": customStyle,
         "md:flex": responsive,
-        flex: !responsive,
-      })}
-    >
+        flex: !responsive
+      })}>
       <div
         className={cn({
-          "w-full": pathParam.includes("blocks/"),
+          "w-full": pathParam.includes("blocks/")
         })}
-        style={customHeight ? { height: Number(customHeight) } : undefined}
-      >
+        style={customHeight ? { height: Number(customHeight) } : undefined}>
         <Suspense
           fallback={
             <div className="flex h-32 items-center justify-center">
-              <Loader2 className="size-5 animate-spin text-muted-foreground" />
+              <Loader2 className="text-muted-foreground size-5 animate-spin" />
             </div>
-          }
-        >
-          {Component ? <Component /> : <div className="p-8 text-muted-foreground text-sm">Component not found</div>}
+          }>
+          {Component ? (
+            <Component />
+          ) : (
+            <div className="text-muted-foreground p-8 text-sm">Component not found</div>
+          )}
         </Suspense>
       </div>
       {isTopLevel && (
-        <div className="fixed bottom-4 left-4 z-50 text-xs text-muted-foreground">
-          Preview mode
-        </div>
+        <div className="text-muted-foreground fixed bottom-4 left-4 z-50 text-xs">Preview mode</div>
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { Menu, MoonIcon, SunIcon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import {
   NavigationMenu,
@@ -54,13 +55,21 @@ export const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <header className="sticky start-0 end-0 z-40 border-b px-4">
       <div className="mx-auto max-w-7xl">
         <div className="bg-background/70 flex items-center justify-between border-x px-4 py-3 backdrop-blur-xs">
           <Logo className="flex items-center gap-2" />
-          <div className="flex items-center lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
+              <SunIcon className="size-4 dark:hidden" />
+              <MoonIcon className="size-4 hidden dark:block" />
+            </Button>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Menu onClick={() => setIsOpen(!isOpen)} className="cursor-pointer lg:hidden" />
@@ -132,7 +141,14 @@ export const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="hidden gap-2 lg:flex">
+          <div className="hidden gap-2 lg:flex items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
+              <SunIcon className="size-4 dark:hidden" />
+              <MoonIcon className="size-4 hidden dark:block" />
+            </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/ecommerce">Preview</Link>
             </Button>

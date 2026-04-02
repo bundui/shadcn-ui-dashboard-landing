@@ -1,12 +1,13 @@
 import React from "react";
-import { Cal_Sans as FontHeading, Geist, Inter, Noto_Serif } from "next/font/google";
+import { Inter, Cal_Sans, DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/layout/landing/theme-provider";
+import { ThemeProvider } from "next-themes";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
 
-const notoSerifHeading = Noto_Serif({subsets:['latin'],variable:'--font-heading'});
+const outfitHeading = Outfit({subsets:['latin'],variable:'--font-heading'});
 
 export default function RootLayout({
   children
@@ -16,11 +17,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", notoSerifHeading.variable, "font-sans", inter.variable)}
+      className={cn("antialiased", outfitHeading.variable, "font-sans", dmSans.variable)}
       suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange>
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

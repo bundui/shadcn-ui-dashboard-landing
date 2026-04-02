@@ -6,11 +6,7 @@ import CodeDialog from "./components/code-dialog";
 import Link from "next/link";
 import { FullscreenIcon, HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import ViewportToolbar from "@/components/viewport-toolbar";
 import ArticleSection from "./components/article-section";
 import PaginationButtons from "./components/pagination-buttons";
@@ -21,16 +17,17 @@ import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import ProSection from "./components/pro-section";
 import IframeDarkToggle from "./components/iframe-dark-toggle";
+import ComponentScrollNav from "./components/component-scroll-nav";
 import {
   Breadcrumb,
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
+  BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
 
 export async function generateMetadata({
-  params,
+  params
 }: {
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
@@ -43,26 +40,21 @@ export async function generateMetadata({
     return generateMeta({
       title: "Shadcn Blocks",
       description: defaultDescription,
-      canonical: url.replace(/^\//, ""),
+      canonical: url.replace(/^\//, "")
     });
   }
 
-  const description =
-    category.description ||
-    `Browse ${category.title.toLowerCase()} blocks from Shadcn UI. More than ${category.components?.length || 0} block variants. Built with Tailwind CSS and React.`;
+  const count = category.components?.length || 0;
+  const description = `Explore ${count}+ ready-to-use ${category.sidebarTitle ?? category.title} blocks built with shadcn/ui, Tailwind CSS, and React. Copy and paste directly into your project or install instantly via the shadcn CLI.`;
 
   return generateMeta({
     title: category.title,
     description,
-    canonical: category.href,
+    canonical: category.href
   });
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string[] }>;
-}) {
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
 
   const url = `/blocks/${slug.join("/")}`;
@@ -74,42 +66,33 @@ export default async function Page({
 
   const currentIndex = categories.findIndex((item) => item.href === url);
   const previousItem = currentIndex > 0 ? categories[currentIndex - 1] : null;
-  const nextItem =
-    currentIndex < categories.length - 1 ? categories[currentIndex + 1] : null;
+  const nextItem = currentIndex < categories.length - 1 ? categories[currentIndex + 1] : null;
 
   return (
     <>
-      <div className="flex justify-between px-0 py-8 lg:pt-6 xl:px-8">
-        <header className="max-w-4xl space-y-3">
-          <Breadcrumb className="lg:mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">
-                  <HomeIcon className="size-3.5" />
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/blocks">Blocks</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                {category?.sidebarTitle ?? category?.title}
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <h1 className="font-heading text-3xl lg:text-4xl">
-            {category?.title}
-          </h1>
-          <p className="text-muted-foreground leading-relaxed text-balance">
-            {category?.description}
-          </p>
-        </header>
-      </div>
+      <header className="flex max-w-4xl flex-col justify-between space-y-3 px-4 lg:pt-6">
+        <Breadcrumb className="lg:mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">
+                <HomeIcon className="size-3.5" />
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/blocks">Blocks</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>{category?.sidebarTitle ?? category?.title}</BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+        <h1 className="font-heading text-3xl lg:text-4xl">{category?.title}</h1>
+        <p className="text-muted-foreground leading-relaxed text-balance">
+          {category?.description}
+        </p>
+      </header>
 
-      <Separator />
-
-      <div className="space-y-4 px-0 py-8 lg:space-y-6 xl:px-8">
+      <div className="space-y-4 px-4 py-8 lg:space-y-6">
         {components?.map((component, index) => {
           const urlParams = new URLSearchParams();
           const compKey = component.href.split("/").pop() || "";
@@ -122,6 +105,9 @@ export default async function Page({
           if ("responsive" in component && (component as any).responsive) {
             urlParams.set("responsive", String((component as any).responsive));
           }
+          if ("customStyle" in component && (component as any).customStyle) {
+            urlParams.set("customStyle", "true");
+          }
 
           const iframeUrl = `/demo?${urlParams.toString()}`;
           // filePath = "blocks/charts/1"
@@ -130,24 +116,22 @@ export default async function Page({
           return (
             <div
               key={compKey}
-              className={cn("space-y-4 lg:space-y-6", {
-                "mb-10 lg:mb-16": components.length !== index + 1,
-              })}
-            >
+              id={compKey}
+              className={cn("scroll-mt-20 space-y-4 lg:space-y-6", {
+                "mb-10 lg:mb-16": components.length !== index + 1
+              })}>
               <h2 className="font-heading flex items-center gap-3 text-xl">
                 {component.title}{" "}
                 {component.isPro ? (
                   <Badge
                     variant="outline"
-                    className="border-amber-300 bg-amber-50 text-[10px] tracking-widest text-amber-600 uppercase dark:border-amber-800 dark:bg-amber-950 dark:text-amber-400"
-                  >
+                    className="border-amber-300 bg-amber-50 text-[10px] tracking-widest text-amber-600 uppercase dark:border-amber-800 dark:bg-amber-950 dark:text-amber-400">
                     Pro
                   </Badge>
                 ) : (
                   <Badge
                     variant="outline"
-                    className="border-green-300 bg-green-50 text-[10px] tracking-widest text-green-600 uppercase dark:border-green-800 dark:bg-green-950 dark:text-green-400"
-                  >
+                    className="border-green-300 bg-green-50 text-[10px] tracking-widest text-green-600 uppercase dark:border-green-800 dark:bg-green-950 dark:text-green-400">
                     Free
                   </Badge>
                 )}
@@ -184,6 +168,8 @@ export default async function Page({
             </div>
           );
         })}
+
+        <ComponentScrollNav ids={components?.map((c) => c.href.split("/").pop() ?? "") ?? []} />
 
         <PaginationButtons previousItem={previousItem} nextItem={nextItem} />
 

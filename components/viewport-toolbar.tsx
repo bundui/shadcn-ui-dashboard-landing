@@ -1,7 +1,7 @@
 "use client";
 
 import { MonitorIcon, SmartphoneIcon, TabletIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Tooltip,
   TooltipContent,
@@ -19,27 +19,28 @@ const devices: { key: ViewportDevice; icon: React.ReactNode; label: string }[] =
 ];
 
 export default function ViewportToolbar({ componentId }: { componentId: string }) {
-  const getDevice = useComponentDevicePreviewStore((s) => s.getDevice);
+  // Must select the resolved device string — `s.getDevice` alone is a stable ref and won't re-render.
+  const current = useComponentDevicePreviewStore((s) => s.getDevice(componentId));
   const setDevice = useComponentDevicePreviewStore((s) => s.setDevice);
-  const current = getDevice(componentId);
 
   return (
-    <div className="flex items-center gap-1">
+    <ToggleGroup
+      type="single"
+      variant="outline"
+      size="sm"
+      value={current}
+      onValueChange={(val) => val && setDevice(componentId, val as ViewportDevice)}
+    >
       {devices.map(({ key, icon, label }) => (
         <Tooltip key={key}>
           <TooltipTrigger asChild>
-            <Button
-              variant={current === key ? "default" : "outline"}
-              size="icon"
-              className="size-9"
-              onClick={() => setDevice(componentId, key)}
-            >
+            <ToggleGroupItem value={key} aria-label={label}>
               {icon}
-            </Button>
+            </ToggleGroupItem>
           </TooltipTrigger>
           <TooltipContent>{label}</TooltipContent>
         </Tooltip>
       ))}
-    </div>
+    </ToggleGroup>
   );
 }

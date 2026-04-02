@@ -3,8 +3,9 @@ export const categories = [
     title: "Shadcn Form Layouts Blocks",
     sidebarTitle: "Form Layouts",
     description:
-      "Comprehensive form layout components built with React, TypeScript, and shadcn/ui, featuring integrated Zod validation, type-safe state management, and responsive grid structures. These modular Tailwind CSS blocks are designed to simplify complex data entry, ensuring a consistent user experience and high submission accuracy for your web applications.",
+      "Ready-to-use shadcn/ui form layout blocks built with React, Tailwind CSS, and Zod validation — designed for real-world data entry needs. Each block is fully responsive, accessible, and easy to customize, so you can ship polished forms without starting from scratch.",
     href: "/blocks/form-layouts",
+    image: "/images/blocks/form-layouts.png",
     components: [
       {
         href: "/blocks/form-layouts/1",
@@ -26,8 +27,9 @@ export const categories = [
     title: "Shadcn Charts Blocks",
     sidebarTitle: "Charts",
     description:
-      "High-performance data visualization components built with React, TypeScript, and shadcn/ui, featuring interactive Recharts integration, type-safe data handling, and seamless animation. These modular Tailwind CSS blocks are designed to transform complex datasets into clear, actionable insights, providing a professional and responsive analytics experience for your dashboard projects.",
+      "Beautiful shadcn/ui chart blocks powered by Recharts — bar, line, area, pie, and more, all built with React and Tailwind CSS. Drop them into your dashboard to turn raw data into clear, actionable insights without writing chart logic from scratch.",
     href: "/blocks/charts",
+    image: "/images/blocks/charts.png",
     components: [
       {
         href: "/blocks/charts/1",
@@ -35,7 +37,8 @@ export const categories = [
         description: "Chart block with title and single or multi-series data viz.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart1"
+        registryName: "chart1",
+        customStyle: true
       },
       {
         href: "/blocks/charts/2",
@@ -43,7 +46,8 @@ export const categories = [
         description: "Chart card with legend and optional timeframe.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart2"
+        registryName: "chart2",
+        customStyle: true
       },
       {
         href: "/blocks/charts/3",
@@ -51,7 +55,8 @@ export const categories = [
         description: "Dashboard chart with axis labels and data series.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart3"
+        registryName: "chart3",
+        customStyle: true
       },
       {
         href: "/blocks/charts/4",
@@ -59,7 +64,8 @@ export const categories = [
         description: "Chart layout with title and visualization.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart4"
+        registryName: "chart4",
+        customStyle: true
       },
       {
         href: "/blocks/charts/5",
@@ -67,7 +73,8 @@ export const categories = [
         description: "Chart with grid or card wrapper and optional controls.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart5"
+        registryName: "chart5",
+        customStyle: true
       },
       {
         href: "/blocks/charts/6",
@@ -75,7 +82,8 @@ export const categories = [
         description: "Data chart with legend and axis.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart6"
+        registryName: "chart6",
+        customStyle: true
       },
       {
         href: "/blocks/charts/7",
@@ -83,7 +91,8 @@ export const categories = [
         description: "Chart block for line, bar, or area visualization.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart7"
+        registryName: "chart7",
+        customStyle: true
       },
       {
         href: "/blocks/charts/8",
@@ -91,7 +100,8 @@ export const categories = [
         description: "Chart with title and data display.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart8"
+        registryName: "chart8",
+        customStyle: true
       },
       {
         href: "/blocks/charts/9",
@@ -99,7 +109,8 @@ export const categories = [
         description: "Dashboard chart with optional subtitle or filters.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart9"
+        registryName: "chart9",
+        customStyle: true
       },
       {
         href: "/blocks/charts/10",
@@ -107,7 +118,8 @@ export const categories = [
         description: "Chart card with visualization and legend.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart10"
+        registryName: "chart10",
+        customStyle: true
       },
       {
         href: "/blocks/charts/11",
@@ -115,7 +127,8 @@ export const categories = [
         description: "Chart with single or multiple series and labels.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart11"
+        registryName: "chart11",
+        customStyle: true
       },
       {
         href: "/blocks/charts/12",
@@ -123,7 +136,8 @@ export const categories = [
         description: "Chart block with title and data viz.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart12"
+        registryName: "chart12",
+        customStyle: true
       },
       {
         href: "/blocks/charts/13",
@@ -131,7 +145,8 @@ export const categories = [
         description: "Chart layout with axis and series.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart13"
+        registryName: "chart13",
+        customStyle: true
       },
       {
         href: "/blocks/charts/14",
@@ -139,7 +154,8 @@ export const categories = [
         description: "Chart with grid background and data display.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart14"
+        registryName: "chart14",
+        customStyle: true
       },
       {
         href: "/blocks/charts/15",
@@ -147,7 +163,8 @@ export const categories = [
         description: "Chart card with visualization and optional controls.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart15"
+        registryName: "chart15",
+        customStyle: true
       },
       {
         href: "/blocks/charts/16",
@@ -155,7 +172,8 @@ export const categories = [
         description: "Chart with title and legend.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart16"
+        registryName: "chart16",
+        customStyle: true
       },
       {
         href: "/blocks/charts/17",
@@ -163,7 +181,8 @@ export const categories = [
         description: "Data chart with axis and series.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart17"
+        registryName: "chart17",
+        customStyle: true
       },
       {
         href: "/blocks/charts/18",
@@ -171,7 +190,8 @@ export const categories = [
         description: "Chart block for dashboard metrics.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart18"
+        registryName: "chart18",
+        customStyle: true
       },
       {
         href: "/blocks/charts/19",
@@ -179,7 +199,8 @@ export const categories = [
         description: "Chart with visualization and optional subtitle.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart19"
+        registryName: "chart19",
+        customStyle: true
       },
       {
         href: "/blocks/charts/20",
@@ -187,7 +208,8 @@ export const categories = [
         description: "Chart card with title and data viz.",
         isPro: true,
         contentPadding: true,
-        registryName: "chart20"
+        registryName: "chart20",
+        customStyle: true
       }
     ]
   },
@@ -195,8 +217,9 @@ export const categories = [
     title: "Shadcn Login Form Blocks",
     sidebarTitle: "Signin Forms",
     description:
-      "Secure and responsive authentication components built with React, TypeScript, and shadcn/ui, featuring integrated Zod validation, type-safe state management, and seamless social login options. These performance-optimized Tailwind CSS blocks are designed to streamline the user sign-in process, ensuring a professional and high-conversion entry point for your web applications.",
+      "Polished shadcn/ui sign-in form blocks built with React, Tailwind CSS, and Zod validation — covering email/password, social login, and magic link patterns. Each block is fully responsive and accessible, giving your users a smooth, professional authentication experience from day one.",
     href: "/blocks/sign-in-forms",
+    image: "/images/blocks/sign-in-forms.png",
     components: [
       {
         href: "/blocks/sign-in-forms/1",
@@ -225,64 +248,73 @@ export const categories = [
     title: "Shadcn Stat Cards Blocks",
     sidebarTitle: "Stat Cards",
     description:
-      "Dashboard stat card components built with shadcn/ui to display key metrics, KPIs, and analytics at a glance. These stat cards feature clean layouts, trend indicators, and optional charts perfect for admin panels, SaaS dashboards, and data-heavy applications.",
+      "Shadcn/ui stat card blocks for displaying KPIs, metrics, and trends at a glance — built with React and Tailwind CSS. Each card features a clean, minimal layout with optional icons and trend indicators, perfect for admin panels and SaaS dashboards.",
     href: "/blocks/stat-cards",
+    image: "/images/blocks/stat-cards.png",
     components: [
       {
         href: "/blocks/stat-cards/1",
         title: "Stat Card 1",
         description: "Card with metric value, label, and optional trend.",
         isPro: false,
-        registryName: "stat-card1"
+        registryName: "stat-card1",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/2",
         title: "Stat Card 2",
         description: "Stat card with number, subtitle, and optional icon.",
         isPro: true,
-        registryName: "stat-card2"
+        registryName: "stat-card2",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/3",
         title: "Stat Card 3",
         description: "Metric card with value and label in a compact layout.",
         isPro: true,
-        registryName: "stat-card3"
+        registryName: "stat-card3",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/4",
         title: "Stat Card 4",
         description: "Stat block with headline number and description.",
         isPro: true,
-        registryName: "stat-card4"
+        registryName: "stat-card4",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/5",
         title: "Stat Card 5",
         description: "Card showing a KPI with optional sparkline or icon.",
         isPro: true,
-        registryName: "stat-card5"
+        registryName: "stat-card5",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/6",
         title: "Stat Card 6",
         description: "Metric card with value, label, and styling.",
         isPro: true,
-        registryName: "stat-card6"
+        registryName: "stat-card6",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/7",
         title: "Stat Card 7",
         description: "Stat card with number and subtitle.",
         isPro: true,
-        registryName: "stat-card7"
+        registryName: "stat-card7",
+        customStyle: true
       },
       {
         href: "/blocks/stat-cards/8",
         title: "Stat Card 8",
         description: "Dashboard stat block with value and optional trend.",
         isPro: true,
-        registryName: "stat-card8"
+        registryName: "stat-card8",
+        customStyle: true
       }
     ]
   },
@@ -290,8 +322,9 @@ export const categories = [
     title: "Shadcn Modal Dialogs Blocks",
     sidebarTitle: "Modal Dialogs",
     description:
-      "Modal and dialog components built with shadcn/ui for confirmations, forms, and focused content. These dialog patterns include login flows, share links, and command palettes with accessible markup and smooth animations for modern web apps.",
+      "Accessible shadcn/ui modal and dialog blocks for confirmations, forms, and alerts — built with React and Tailwind CSS. Each pattern includes proper focus management and smooth animations, so you can handle user interactions cleanly without building from scratch.",
     href: "/blocks/modal-dialogs",
+    image: "/images/blocks/modal-dialogs.png",
     components: [
       {
         href: "/blocks/modal-dialogs/1",
@@ -322,8 +355,9 @@ export const categories = [
     title: "Shadcn Page Layouts Blocks",
     sidebarTitle: "Page Layouts",
     description:
-      "Full page layout components built with shadcn/ui sidebar and header patterns. These layouts provide responsive navigation, content areas, and consistent structure for dashboards, admin panels, and internal tools.",
+      "Full-page shadcn/ui layout blocks combining headers, sidebars, and content areas — built with React and Tailwind CSS. These ready-made structures give your dashboard or admin panel a solid, responsive foundation without having to wire up navigation from scratch.",
     href: "/blocks/page-layouts",
+    image: "/images/blocks/page-layouts.png",
     components: [
       {
         href: "/blocks/page-layouts/1",
@@ -355,8 +389,9 @@ export const categories = [
     title: "Shadcn Sidebar Layouts Blocks",
     sidebarTitle: "Sidebar Layouts",
     description:
-      "Sidebar-based layout components built with shadcn/ui for app navigation and structure. These layouts combine collapsible sidebars, headers, and main content areas ideal for dashboards and multi-section applications.",
+      "Shadcn/ui sidebar layout blocks with collapsible navigation, headers, and main content areas — built with React and Tailwind CSS. Ideal for dashboards and multi-section apps, these layouts let you scaffold a complete app shell in minutes instead of hours.",
     href: "/blocks/sidebar-layouts",
+    image: "/images/blocks/sidebar-layouts.png",
     components: [
       {
         href: "/blocks/sidebar-layouts/1",
@@ -372,8 +407,9 @@ export const categories = [
     title: "Shadcn Tables Blocks",
     sidebarTitle: "Tables",
     description:
-      "High-performance data table components built with React, TypeScript, and shadcn/ui, featuring integrated TanStack Table support, type-safe filtering, and seamless pagination. These modular Tailwind CSS blocks are designed to handle complex datasets with ease, providing a professional and responsive administrative interface for your web applications.",
+      "Powerful shadcn/ui data table blocks built with React, Tailwind CSS, and TanStack Table — featuring sorting, filtering, and pagination out of the box. Drop them into your admin panel or dashboard to handle complex datasets with a clean, professional interface.",
     href: "/blocks/tables",
+    image: "/images/blocks/tables.png",
     components: [
       {
         href: "/blocks/tables/1",
