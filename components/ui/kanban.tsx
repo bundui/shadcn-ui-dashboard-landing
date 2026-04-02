@@ -41,7 +41,7 @@ import {
   verticalListSortingStrategy
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot as SlotPrimitive } from "radix-ui";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
@@ -602,7 +602,7 @@ const KanbanBoard = React.forwardRef<HTMLDivElement, KanbanBoardProps>((props, f
     return Object.keys(context.items);
   }, [context.items]);
 
-  const BoardPrimitive = asChild ? Slot : "div";
+  const BoardPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
   return (
     <KanbanBoardContext.Provider value={true}>
@@ -724,7 +724,7 @@ const KanbanColumn = React.forwardRef<HTMLDivElement, KanbanColumnProps>((props,
     [id, attributes, listeners, setActivatorNodeRef, isDragging, disabled]
   );
 
-  const ColumnPrimitive = asChild ? Slot : "div";
+  const ColumnPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
   return (
     <KanbanColumnContext.Provider value={columnContext}>
@@ -782,7 +782,7 @@ const KanbanColumnHandle = React.forwardRef<HTMLButtonElement, KanbanColumnHandl
       columnContext.setActivatorNodeRef(node);
     });
 
-    const HandlePrimitive = asChild ? Slot : "button";
+    const HandlePrimitive = asChild ? SlotPrimitive.Slot : "button";
 
     return (
       <HandlePrimitive
@@ -885,7 +885,7 @@ const KanbanItem = React.forwardRef<HTMLDivElement, KanbanItemProps>((props, for
     [id, attributes, listeners, setActivatorNodeRef, isDragging, disabled]
   );
 
-  const ItemPrimitive = asChild ? Slot : "div";
+  const ItemPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
   return (
     <KanbanItemContext.Provider value={itemContext}>
@@ -935,7 +935,7 @@ const KanbanItemHandle = React.forwardRef<HTMLButtonElement, KanbanItemHandlePro
       itemContext.setActivatorNodeRef(node);
     });
 
-    const HandlePrimitive = asChild ? Slot : "button";
+    const HandlePrimitive = asChild ? SlotPrimitive.Slot : "button";
 
     return (
       <HandlePrimitive

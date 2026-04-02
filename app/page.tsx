@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { HeroSection } from "@/components/layout/landing/sections/hero";
-import Testimonials from "@/app/components/testimonials";
-import Features from "@/app/components/features";
-import CTA from "@/app/components/cta";
+import Testimonials from "@/components/layout/components/testimonials";
+import Features from "@/components/layout/components/features";
+import CTA from "@/components/layout/components/cta";
 
 export const metadata: Metadata = {
   title: `The Ultimate Shadcn UI Admin Dashboard Template`,
