@@ -1,21 +1,12 @@
 import React from "react";
-
-import { Cal_Sans as FontHeading, Plus_Jakarta_Sans as FontSans, Geist } from "next/font/google";
-import GoogleAnalyticsInit from "@/lib/ga";
-
+import { Cal_Sans as FontHeading, Geist, Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/landing/navbar";
-import { FooterSection } from "@/components/layout/landing/sections/footer";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/layout/landing/theme-provider";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
-const fontHeading = FontHeading({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: "400"
-});
+const notoSerifHeading = Noto_Serif({subsets:['latin'],variable:'--font-heading'});
 
 export default function RootLayout({
   children
@@ -25,15 +16,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", fontHeading.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", notoSerifHeading.variable, "font-sans", inter.variable)}
       suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <TooltipProvider>
-        <Navbar />
-        {children}
-        <FooterSection />
-        </TooltipProvider>
-        {process.env.NODE_ENV === "production" ? <GoogleAnalyticsInit /> : null}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

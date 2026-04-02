@@ -35,6 +35,10 @@ export const routeList: RouteProps[] = [
     label: "Dashboard Preview"
   },
   {
+    href: "/blocks",
+    label: "Blocks"
+  },
+  {
     href: "/pricing",
     label: "Pricing"
   },
