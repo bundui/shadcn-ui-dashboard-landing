@@ -1,7 +1,14 @@
 "use client";
 
-import { Menu, MoonIcon, SunIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  LayoutDashboard,
+  Menu,
+  MoonIcon,
+  SunIcon
+} from "@hugeicons/core-free-icons";
 import { useTheme } from "next-themes";
+import { useSession } from "@/lib/auth-client";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import {
   NavigationMenu,
@@ -17,6 +24,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import Logo from "@/components/layout/logo";
+import UserMenu, { type InitialUser } from "@/components/layout/landing/user-menu";
+import LoginDialog from "@/components/layout/landing/login-dialog";
+import ThanksDialog from "@/components/layout/landing/thanks-dialog";
 import { Fragment, useState } from "react";
 
 interface RouteProps {
@@ -40,39 +50,44 @@ export const routeList: RouteProps[] = [
     label: "Blocks"
   },
   {
-    href: "/pricing",
-    label: "Pricing"
+    href: "/styles",
+    label: "Styles"
   },
   {
     href: "/roadmap",
     label: "Roadmap"
   },
   {
-    href: "/contact",
-    label: "Contact"
+    href: "/updates",
+    label: "Updates"
   }
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ initialUser }: { initialUser?: InitialUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const { data: session, isPending } = useSession();
+  // Server-rendered session state paints instantly; the client session takes
+  // over once resolved (e.g. right after sign-out)
+  const isSignedIn = isPending ? !!initialUser : !!session?.user;
 
   return (
-    <header className="sticky start-0 end-0 z-40 border-b px-4">
-      <div className="mx-auto max-w-7xl">
-        <div className="bg-background/70 flex items-center justify-between border-x px-4 py-3 backdrop-blur-xs">
+    <header className="sticky top-0 z-40 border-b">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="bg-background/70 flex items-center justify-between py-3 backdrop-blur-md">
           <Logo className="flex items-center gap-2" />
           <div className="flex items-center gap-2 lg:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
-              <SunIcon className="size-4 dark:hidden" />
-              <MoonIcon className="size-4 hidden dark:block" />
+              <HugeiconsIcon icon={SunIcon} className="size-4 dark:hidden" />
+              <HugeiconsIcon icon={MoonIcon} className="size-4 hidden dark:block" />
             </Button>
+            <UserMenu initialUser={initialUser} />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Menu onClick={() => setIsOpen(!isOpen)} className="cursor-pointer lg:hidden" />
+                <HugeiconsIcon icon={Menu} onClick={() => setIsOpen(!isOpen)} className="cursor-pointer lg:hidden" />
               </SheetTrigger>
 
               <SheetContent
@@ -96,9 +111,18 @@ export const Navbar = () => {
                         <Link href={route.href}>{route.label}</Link>
                       </Button>
                     ))}
-                    <Button aria-label="Get Admin Template" asChild>
-                      <Link href="/pricing">Get Shadcn Dashboard</Link>
-                    </Button>
+                    {isSignedIn ? (
+                      <Button asChild onClick={() => setIsOpen(false)}>
+                        <Link href="/dashboard">
+                          <HugeiconsIcon icon={LayoutDashboard} className="size-4" />
+                          My Account
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Button aria-label="Get Admin Template" asChild>
+                        <Link href="/pricing">Get All Access</Link>
+                      </Button>
+                    )}
                   </div>
                 </div>
               </SheetContent>
@@ -146,18 +170,32 @@ export const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>
-              <SunIcon className="size-4 dark:hidden" />
-              <MoonIcon className="size-4 hidden dark:block" />
+              <HugeiconsIcon icon={SunIcon} className="size-4 dark:hidden" />
+              <HugeiconsIcon icon={MoonIcon} className="size-4 hidden dark:block" />
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href="/ecommerce">Preview</Link>
-            </Button>
-            <Button size="lg" asChild>
-              <Link href="/pricing">Get Shadcn Dashboard</Link>
-            </Button>
+            {isSignedIn ? (
+              <Button size="lg" asChild>
+                <Link href="/dashboard">
+                  <HugeiconsIcon icon={LayoutDashboard} className="size-4" />
+                  My Account
+                </Link>
+              </Button>
+            ) : (
+              <>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/ecommerce">Preview</Link>
+                </Button>
+                <Button size="lg" asChild>
+                  <Link href="/pricing">Get All Access</Link>
+                </Button>
+              </>
+            )}
+            <UserMenu initialUser={initialUser} />
           </div>
         </div>
       </div>
+      <LoginDialog />
+      <ThanksDialog />
     </header>
   );
 };

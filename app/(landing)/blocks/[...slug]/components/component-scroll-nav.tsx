@@ -1,7 +1,11 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ChevronUp as ChevronUpIcon,
+  ChevronDown as ChevronDownIcon
+} from "@hugeicons/core-free-icons";
 import { useEffect, useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -59,7 +63,7 @@ export default function ComponentScrollNav({ ids }: { ids: string[] }) {
             disabled={!hasPrev}
             onClick={() => scrollTo(activeIndex - 1)}
           >
-            <ChevronUpIcon className="size-4" />
+            <HugeiconsIcon icon={ChevronUpIcon} className="size-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent side="left">
@@ -76,7 +80,7 @@ export default function ComponentScrollNav({ ids }: { ids: string[] }) {
             disabled={!hasNext}
             onClick={() => scrollTo(activeIndex + 1)}
           >
-            <ChevronDownIcon className="size-4" />
+            <HugeiconsIcon icon={ChevronDownIcon} className="size-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent side="left">

@@ -1,8 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ArrowUpDown,
+  RefreshCw as RefreshCwIcon
+} from "@hugeicons/core-free-icons";
 import React from "react";
-import { ArrowUpDown, RefreshCwIcon } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
 import {
@@ -177,7 +181,7 @@ export default function LineChartComponent() {
               <span className="hidden md:inline">Last updated:</span> 11:08 AM
             </div>
             <Button variant="ghost" size="sm">
-              <RefreshCwIcon />
+              <HugeiconsIcon icon={RefreshCwIcon} />
             </Button>
           </div>
         </CardAction>
@@ -197,7 +201,7 @@ export default function LineChartComponent() {
               <SelectItem value="aud">🇦🇺 AUD</SelectItem>
             </SelectContent>
           </Select>
-          <ArrowUpDown className="text-muted-foreground size-4 shrink-0" />
+          <HugeiconsIcon icon={ArrowUpDown} className="text-muted-foreground size-4 shrink-0" />
           <Select defaultValue="usd">
             <SelectTrigger className="w-full">
               <SelectValue />

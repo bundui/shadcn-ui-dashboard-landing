@@ -1,67 +1,74 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Star
+} from "@hugeicons/core-free-icons";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "Frontend Developer",
+    content:
+      "This template saved me weeks of development time. The code quality is exceptional. It reads like something our own team would write.",
+    avatar: "/avatars/01.jpeg",
+    initials: "SJ"
+  },
+  {
+    name: "Mike Chen",
+    role: "Startup Founder",
+    content:
+      "Perfect for our admin panel. Professional design, easy to customize, and the dark mode looks better than most products I pay for.",
+    avatar: "/avatars/02.jpeg",
+    initials: "MC"
+  },
+  {
+    name: "Lisa Rodriguez",
+    role: "UI/UX Designer",
+    content:
+      "Beautiful components and great attention to detail. Spacing, typography and states are all consistent. Highly recommended.",
+    avatar: "/avatars/03.jpeg",
+    initials: "LR"
+  }
+];
 
 export default function Testimonials() {
   return (
-    <section>
-      <div className="mx-auto max-w-7xl border-x py-20">
-        <div className="mb-16 flex items-center justify-between px-4 text-center">
-          <h2 className="font-heading mb-4 text-3xl lg:text-4xl">Loved by Developers Worldwide</h2>
-          <div className="flex flex-col items-end gap-2">
-            <div className="flex gap-3">
+    <section className="bg-background relative z-10">
+      <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:py-28">
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-muted-foreground mb-3 font-mono text-xs tracking-widest uppercase">
+              04 · Wall of love
+            </p>
+            <h2 className="font-heading text-3xl lg:text-4xl">Loved by developers worldwide</h2>
+          </div>
+          <div className="flex flex-col items-end gap-1.5">
+            <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="size-4 fill-yellow-400 text-yellow-400" />
+                <HugeiconsIcon icon={Star} key={i} className="fill-foreground text-foreground size-4" />
               ))}
             </div>
-            <span className="text-muted-foreground ml-2 text-end text-xs">
-              4.9/5 from 500+ reviews
-            </span>
+            <span className="text-muted-foreground font-mono text-xs">4.9/5 from 500+ reviews</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 border-y md:grid-cols-3">
-          {[
-            {
-              name: "Sarah Johnson",
-              role: "Frontend Developer",
-              content:
-                "This template saved me weeks of development time. The code quality is exceptional!",
-              avatar: "SJ"
-            },
-            {
-              name: "Mike Chen",
-              role: "Startup Founder",
-              content: "Perfect for our admin panel. Professional design and easy to customize.",
-              avatar: "MC"
-            },
-            {
-              name: "Lisa Rodriguez",
-              role: "UI/UX Designer",
-              content: "Beautiful components and great attention to detail. Highly recommended!",
-              avatar: "LR"
-            }
-          ].map((testimonial, index) => (
-            <Card
-              key={index}
-              className="&:nth-child(3n)]:border-e-transparent! rounded-none border-0 border-e shadow-none">
-              <CardContent className="p-6">
-                <div className="mb-4 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-purple-600 font-semibold text-white">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-muted-foreground text-sm">{testimonial.role}</div>
-                  </div>
+        <div className="grid grid-cols-1 border-t border-s md:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <figure key={index} className="flex flex-col justify-between gap-6 border-e border-b p-6 lg:p-8">
+              <blockquote className="text-base leading-relaxed text-balance">
+                &ldquo;{testimonial.content}&rdquo;
+              </blockquote>
+              <figcaption className="flex items-center gap-3 border-t pt-5">
+                <Avatar className="size-10">
+                  <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                  <AvatarFallback className="text-xs">{testimonial.initials}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="text-sm font-semibold">{testimonial.name}</div>
+                  <div className="text-muted-foreground text-sm">{testimonial.role}</div>
                 </div>
-                <p className="text-muted-foreground">&#34;{testimonial.content}&#34;</p>
-                <div className="mt-4 flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

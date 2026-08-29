@@ -1,4 +1,8 @@
-import { CodeIcon, LockIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CodeIcon,
+  LockIcon
+} from "@hugeicons/core-free-icons";
 import { extractCodeFromFilePath, getFilesInDirectory } from "@/lib/code";
 
 import { Button } from "@/components/ui/button";
@@ -66,7 +70,7 @@ export default async function CodeDialog({ filePath, comp }: Props) {
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">
-            {shouldShowLock ? <LockIcon /> : <CodeIcon />} Get the Code
+            {shouldShowLock ? <HugeiconsIcon icon={LockIcon} /> : <HugeiconsIcon icon={CodeIcon} />} Get the Code
           </Button>
         </DialogTrigger>
         <DialogContent className="border-0 p-0 md:min-w-2xl">

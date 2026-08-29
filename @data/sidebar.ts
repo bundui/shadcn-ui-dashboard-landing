@@ -29,6 +29,7 @@ export const sidebarData: SidebarGroup[] = [
     items: [
       {
         title: "Ecommerce",
+        url: "/ecommerce",
         icon: IconDashboard,
         items: [
           {
@@ -55,6 +56,7 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "CRM",
+        url: "/crm",
         icon: IconDashboard,
         items: [
           {
@@ -77,6 +79,49 @@ export const sidebarData: SidebarGroup[] = [
         icon: IconDashboard
       },
       {
+        title: "Real Estate",
+        url: "/real-estate",
+        icon: IconFolder,
+        items: [
+          {
+            title: "Dashboard",
+            url: "/real-estate"
+          },
+          {
+            title: "Property Details",
+            url: "/real-estate/property-details"
+          },
+          {
+            title: "Search Results",
+            url: "/real-estate/search"
+          },
+          {
+            title: "Map View",
+            url: "/real-estate/map-view"
+          }
+        ]
+      },
+      {
+        title: "Logistics",
+        url: "/logistics",
+        icon: IconTruck,
+        items: [
+          {
+            title: "Dashboard",
+            url: "/logistics"
+          },
+          {
+            title: "Shipments",
+            url: "/logistics/shipments"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: "Web Apps",
+    items: [
+      {
         title: "AI Chatbot",
         url: "/ai-chatbot",
         icon: IconUsers
@@ -93,6 +138,7 @@ export const sidebarData: SidebarGroup[] = [
       },
       {
         title: "Social Network",
+        url: "/social-network",
         icon: IconFolder,
         items: [
           {
@@ -111,12 +157,8 @@ export const sidebarData: SidebarGroup[] = [
         icon: IconFolder
       },
       {
-        title: "Logistics",
-        url: "/logistics",
-        icon: IconTruck
-      },
-      {
         title: "Education",
+        url: "/education",
         icon: IconFolder,
         items: [
           {
@@ -130,30 +172,13 @@ export const sidebarData: SidebarGroup[] = [
         ]
       },
       {
-        title: "Real Estate",
-        icon: IconFolder,
-        items: [
-          {
-            title: "Property Details",
-            url: "/real-estate/property-details"
-          },
-          {
-            title: "Search Results",
-            url: "/real-estate/search"
-          },
-          {
-            title: "Map View",
-            url: "/real-estate/map-view"
-          }
-        ]
-      },
-      {
         title: "Job Postings",
         url: "/job-postings",
         icon: IconFolder
       },
       {
         title: "User",
+        url: "/user",
         icon: IconChartBar,
         items: [
           {

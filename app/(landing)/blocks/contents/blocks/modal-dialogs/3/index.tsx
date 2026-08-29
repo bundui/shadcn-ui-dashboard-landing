@@ -1,8 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Check,
+  Plus
+} from "@hugeicons/core-free-icons";
 import * as React from "react";
-import { Check, Plus } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -85,7 +89,7 @@ export default function ChatWidget() {
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild>
             <Button variant="outline" onClick={() => setOpen(true)}>
-              <Plus />
+              <HugeiconsIcon icon={Plus} />
               New message
             </Button>
           </DialogTrigger>
@@ -135,7 +139,7 @@ export default function ChatWidget() {
                         </p>
                       </div>
                       {selectedUsers.includes(user) ? (
-                        <Check className="text-primary ml-auto flex h-5 w-5" />
+                        <HugeiconsIcon icon={Check} className="text-primary ml-auto flex h-5 w-5" />
                       ) : null}
                     </CommandItem>
                   ))}

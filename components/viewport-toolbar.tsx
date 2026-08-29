@@ -1,6 +1,11 @@
 "use client";
 
-import { MonitorIcon, SmartphoneIcon, TabletIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Monitor as MonitorIcon,
+  Smartphone as SmartphoneIcon,
+  TabletIcon
+} from "@hugeicons/core-free-icons";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Tooltip,
@@ -13,9 +18,9 @@ import {
 } from "@/store/component-device-preview";
 
 const devices: { key: ViewportDevice; icon: React.ReactNode; label: string }[] = [
-  { key: "mobile", icon: <SmartphoneIcon className="size-4" />, label: "Mobile" },
-  { key: "tablet", icon: <TabletIcon className="size-4" />, label: "Tablet" },
-  { key: "desktop", icon: <MonitorIcon className="size-4" />, label: "Desktop" },
+  { key: "mobile", icon: <HugeiconsIcon icon={SmartphoneIcon} className="size-4" />, label: "Mobile" },
+  { key: "tablet", icon: <HugeiconsIcon icon={TabletIcon} className="size-4" />, label: "Tablet" },
+  { key: "desktop", icon: <HugeiconsIcon icon={MonitorIcon} className="size-4" />, label: "Desktop" },
 ];
 
 export default function ViewportToolbar({ componentId }: { componentId: string }) {

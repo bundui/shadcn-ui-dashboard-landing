@@ -1,5 +1,6 @@
 "use client"
 
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 import type { TooltipValueType } from "recharts"
@@ -16,7 +17,7 @@ export type ChartConfig = Record<
   string,
   {
     label?: React.ReactNode
-    icon?: React.ComponentType
+    icon?: IconSvgElement
   } & (
     | { color?: string; theme?: never }
     | { color?: never; theme: Record<keyof typeof THEMES, string> }
@@ -217,7 +218,7 @@ function ChartTooltipContent({
                 ) : (
                   <>
                     {itemConfig?.icon ? (
-                      <itemConfig.icon />
+                      <HugeiconsIcon icon={itemConfig.icon} />
                     ) : (
                       !hideIndicator && (
                         <div
@@ -310,7 +311,7 @@ function ChartLegendContent({
               )}
             >
               {itemConfig?.icon && !hideIcon ? (
-                <itemConfig.icon />
+                <HugeiconsIcon icon={itemConfig.icon} />
               ) : (
                 <div
                   className="h-2 w-2 shrink-0 rounded-[2px]"

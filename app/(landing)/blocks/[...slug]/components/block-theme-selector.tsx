@@ -1,5 +1,9 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Palette as PaletteIcon
+} from "@hugeicons/core-free-icons";
 import { useEffect, useState } from "react";
 import { listThemes, type ThemeSave } from "@/app/generator/lib/theme-saves";
 import { useBlockThemeStore } from "@/store/block-theme";
@@ -10,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { PaletteIcon } from "lucide-react";
 
 export default function BlockThemeSelector() {
   const [themes, setThemes] = useState<ThemeSave[]>([]);
@@ -30,7 +33,7 @@ export default function BlockThemeSelector() {
   return (
     <Select onValueChange={handleSelect}>
       <SelectTrigger className="h-9 w-auto gap-1.5 text-sm">
-        <PaletteIcon className="size-3.5" />
+        <HugeiconsIcon icon={PaletteIcon} className="size-3.5" />
         <SelectValue placeholder="Apply theme" />
       </SelectTrigger>
       <SelectContent>

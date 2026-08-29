@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/:path*", "destination": "https://nextjs-dashboard.shadcnuidashboard.com/:path*" }
-  ]
-}

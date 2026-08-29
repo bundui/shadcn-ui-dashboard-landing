@@ -1,117 +1,88 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Clock, Lightbulb, Rocket } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CheckCircle,
+  Clock,
+  Lightbulb,
+  Rocket
+} from "@hugeicons/core-free-icons";
 
 const Roadmap = () => {
   const roadmapItems = [
     {
-      status: "completed",
-      quarter: "Q4 2023",
-      title: "Shadcn Dashboard v2.0 Launch",
-      items: [
-        "Complete UI redesign with Shadcn/UI",
-        "TypeScript migration",
-        "Dark mode support",
-        "Mobile-first responsive design",
-        "50+ new components",
-        "Performance optimizations"
-      ]
-    },
-    {
-      status: "completed",
-      quarter: "Q1 2024",
-      title: "Enhanced Features",
-      items: [
-        "Advanced data tables with sorting/filtering",
-        "Real-time notifications system",
-        "Multiple dashboard layouts",
-        "Email template collection",
-        "Form validation patterns",
-        "API integration examples"
-      ]
-    },
-    {
       status: "in-progress",
-      quarter: "Q2 2024",
-      title: "Developer Experience",
-      items: [
-        "Comprehensive documentation site",
-        "Video tutorial series",
-        "Storybook component library",
-        "CLI tool for quick setup",
-        "Custom hooks library",
-        "Testing utilities and examples"
-      ]
+      title: "Vite.js CRM Dashboard",
+      description: "The same CRM experience, rebuilt on Vite for teams that prefer a SPA setup."
     },
     {
       status: "planned",
-      quarter: "Q3 2024",
-      title: "Advanced Components",
-      items: [
-        "Drag & drop dashboard builder",
-        "Advanced chart library integration",
-        "Calendar and scheduling components",
-        "File upload with preview",
-        "Rich text editor integration",
-        "Multi-step form wizard"
-      ]
+      title: "Blocks Page",
+      description: "Plug-and-play blocks for advanced dashboard components: copy, paste, ship."
     },
     {
       status: "planned",
-      quarter: "Q4 2024",
-      title: "Integration & Plugins",
-      items: [
-        "Authentication provider templates",
-        "Database integration examples",
-        "Payment gateway templates",
-        "Social media integrations",
-        "Analytics and tracking setup",
-        "SEO optimization tools"
-      ]
+      title: "Analytics Dashboard",
+      description: "Traffic, conversion and revenue insights with rich chart components."
     },
     {
-      status: "future",
-      quarter: "2025",
-      title: "Next Generation Features",
-      items: [
-        "AI-powered component generation",
-        "Real-time collaboration tools",
-        "Advanced theming system",
-        "Micro-frontend architecture",
-        "Progressive Web App features",
-        "Advanced accessibility tools"
-      ]
+      status: "planned",
+      title: "Hospital Dashboard",
+      description: "Patient management, appointments and staff scheduling for healthcare."
+    },
+    {
+      status: "planned",
+      title: "Project Management Dashboard",
+      description: "Projects, tasks, timelines and team workload in one place."
+    },
+    {
+      status: "planned",
+      title: "Vue.js CRM Dashboard",
+      description: "The CRM dashboard ported to Vue 3 with the same design system."
+    },
+    {
+      status: "planned",
+      title: "Svelte CRM Dashboard",
+      description: "A Svelte take on the CRM dashboard for lighter, faster apps."
+    },
+    {
+      status: "planned",
+      title: "Figma Design Kit",
+      description: "Every component and page as a Figma library, in sync with the code."
+    },
+    {
+      status: "completed",
+      title: "Next.js CRM Dashboard",
+      description: "A full-featured CRM dashboard built with Next.js App Router and shadcn/ui."
+    },
+    {
+      status: "completed",
+      title: "Shadcn Admin v1.0 Launch",
+      description: "The first stable release of Shadcn Admin, built with shadcn/ui and TypeScript."
+    },
+    {
+      status: "completed",
+      title: "Next.js Ecommerce Dashboard",
+      description: "Orders, products, customers and revenue analytics for online stores."
     }
   ];
 
   const columns = [
     {
-      status: "completed",
-      title: "Completed",
-      icon: <CheckCircle className="h-5 w-5 text-green-500" />,
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200"
-    },
-    {
       status: "in-progress",
       title: "In Progress",
-      icon: <Clock className="h-5 w-5 text-blue-500" />,
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200"
+      dotClass: "bg-blue-500",
+      icon: <HugeiconsIcon icon={Clock} className="size-5 text-blue-500" strokeWidth={2} />
     },
     {
       status: "planned",
       title: "Planned",
-      icon: <Lightbulb className="h-5 w-5 text-orange-500" />,
-      bgColor: "bg-orange-50",
-      borderColor: "border-orange-200"
+      dotClass: "bg-orange-500",
+      icon: <HugeiconsIcon icon={Lightbulb} className="size-5 text-orange-500" strokeWidth={2} />
     },
     {
-      status: "future",
-      title: "Future",
-      icon: <Rocket className="h-5 w-5 text-blue-500" />,
-      bgColor: "bg-purple-50",
-      borderColor: "border-purple-200"
+      status: "completed",
+      title: "Completed",
+      dotClass: "bg-green-500",
+      icon: <HugeiconsIcon icon={CheckCircle} className="size-5 text-green-500" strokeWidth={2} />
     }
   ];
 
@@ -121,69 +92,47 @@ const Roadmap = () => {
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl border-x">
-        <div className="mx-auto max-w-5xl py-20 text-center">
-          <Badge variant="secondary" className="mb-4 bg-indigo-100 text-indigo-700">
-            <Rocket className="mr-1 h-4 w-4" />
-            Product Roadmap
-          </Badge>
-          <h1 className="font-heading mb-4 flex justify-center gap-2 text-4xl lg:text-5xl">
-            <span className="block bg-gradient-to-b from-indigo-400 to-blue-700 bg-clip-text text-transparent">
-              Shadcn Dashboard
-            </span>{" "}
-            Roadmap
-          </h1>
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-2xl px-4 py-16 lg:py-24">
+          <p className="text-muted-foreground mb-3 font-mono text-xs tracking-widest uppercase">
+            Product roadmap
+          </p>
+          <h1 className="font-heading mb-4 text-4xl md:text-5xl">Where the template is headed</h1>
           <p className="text-muted-foreground text-lg text-balance">
-            We&#39;re constantly improving Shadcn Dashboard based on user feedback and industry
+            We&#39;re constantly improving Shadcn UI Dashboard based on user feedback and industry
             trends. Here&#39;s what we&#39;ve accomplished and what&#39;s coming next.
           </p>
         </div>
 
         {/* Kanban Board */}
-        <div className="grid grid-cols-1 border-t md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 border-t md:grid-cols-3">
           {columns.map((column) => (
-            <div key={column.status} className={`min-h-[600px] border-e [&:last-child]:border-e-0`}>
+            <div
+              key={column.status}
+              className="border-e max-md:border-e-0 max-md:border-b max-md:last:border-b-0 md:last:border-e-0">
               {/* Column Header */}
-              <div className="flex items-center gap-2 border-b p-4">
+              <div className="flex items-center gap-2.5 border-b p-4 lg:px-5">
                 {column.icon}
                 <h3 className="font-semibold">{column.title}</h3>
-                <span className="text-muted-foreground ml-auto text-sm">
+                <span className="text-muted-foreground ml-auto text-sm tabular-nums">
                   {getItemsByStatus(column.status).length}
                 </span>
               </div>
 
               {/* Column Items */}
-              <div>
+              <div className="space-y-4 p-4 lg:p-5">
                 {getItemsByStatus(column.status).map((item, index) => (
-                  <Card
+                  <div
                     key={index}
-                    className="cursor-pointer border-0 border-b transition-shadow duration-200">
-                    <CardHeader>
-                      <div className="flex items-start justify-between gap-2">
-                        <CardTitle className="text-sm leading-tight font-semibold text-gray-900">
-                          {item.title}
-                        </CardTitle>
-                      </div>
-                    </CardHeader>
-
-                    <CardContent className="pt-0">
-                      <ul className="space-y-2">
-                        {item.items.slice(0, 3).map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-start gap-2">
-                            <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400" />
-                            <span className="text-muted-foreground text-xs leading-relaxed">
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                        {item.items.length > 3 && (
-                          <li className="text-xs font-medium text-gray-500">
-                            +{item.items.length - 3} more features
-                          </li>
-                        )}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                    className="hover:bg-muted/40 rounded-2xl border p-5 transition-colors lg:p-6">
+                    <div className="flex items-center gap-2.5">
+                      <span className={`size-2 shrink-0 rounded-full ${column.dotClass}`} />
+                      <h4 className="leading-tight font-semibold">{item.title}</h4>
+                    </div>
+                    <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -192,25 +141,31 @@ const Roadmap = () => {
       </div>
 
       <div className="border-t">
-        <div className="mx-auto max-w-7xl border-x px-4 py-10">
-          <div className="mb-8 text-center">
-            <h2 className="font-heading mb-4 text-3xl">Continuous Innovation</h2>
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:py-20">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-muted-foreground mb-3 font-mono text-xs tracking-widest uppercase">
+              Track record
+            </p>
+            <h2 className="font-heading mb-2 text-3xl">Continuous innovation</h2>
             <p className="text-muted-foreground text-lg">
-              Our commitment to excellence drives constant improvement
+              Our commitment to excellence drives constant improvement.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          <div className="grid grid-cols-2 border-y md:grid-cols-4">
             {[
-              { value: "24+", label: "Updates Released", description: "Regular feature updates" },
-              { value: "150+", label: "Features Added", description: "Since launch" },
-              { value: "5k+", label: "User Requests", description: "Community feedback" },
-              { value: "99%", label: "Uptime", description: "Reliable service" }
+              { value: "24+", label: "Updates Released" },
+              { value: "150+", label: "Features Added" },
+              { value: "5k+", label: "User Requests" },
+              { value: "99%", label: "Uptime" }
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="mb-1 text-3xl font-bold">{stat.value}</div>
-                <div className="mb-1 font-semibold">{stat.label}</div>
-                <div className="text-muted-foreground text-sm">{stat.description}</div>
+              <div
+                key={index}
+                className="border-e px-4 py-6 text-center last:border-e-0 max-md:[&:nth-child(-n+2)]:border-b max-md:[&:nth-child(2n)]:border-e-0">
+                <div className="font-heading text-3xl tabular-nums">{stat.value}</div>
+                <div className="text-muted-foreground mt-1 font-mono text-xs tracking-wide uppercase">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>

@@ -1,8 +1,9 @@
 // @ts-nocheck
 "use client";
 
-import { type LucideIcon } from "lucide-react";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import type { IconSvgElement as LucideIcon } from "@hugeicons/react";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -29,7 +30,7 @@ export function NavProjects({
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               <Link href={item.url}>
-                <item.icon />
+                <HugeiconsIcon icon={item.icon} />
                 <span>{item.name}</span>
               </Link>
             </SidebarMenuButton>

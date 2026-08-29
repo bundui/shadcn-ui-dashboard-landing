@@ -1,6 +1,12 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  AlertTriangle,
+  Check,
+  ChevronRight,
+  Eye
+} from "@hugeicons/core-free-icons";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { AlertTriangle, Check, ChevronRight, Eye } from "lucide-react";
 import Link from "next/link";
 
 const data = [
@@ -48,11 +54,11 @@ export default function Stats06() {
                           : "bg-red-500 text-white"
                     )}>
                     {item.status === "within" ? (
-                      <Check className="size-4 shrink-0" aria-hidden={true} />
+                      <HugeiconsIcon icon={Check} className="size-4 shrink-0" aria-hidden={true} />
                     ) : item.status === "observe" ? (
-                      <Eye className="size-4 shrink-0" aria-hidden={true} />
+                      <HugeiconsIcon icon={Eye} className="size-4 shrink-0" aria-hidden={true} />
                     ) : (
-                      <AlertTriangle className="size-4 shrink-0" aria-hidden={true} />
+                      <HugeiconsIcon icon={AlertTriangle} className="size-4 shrink-0" aria-hidden={true} />
                     )}
                   </span>
                   <dd>
@@ -75,7 +81,7 @@ export default function Stats06() {
                     </p>
                   </dd>
                 </div>
-                <ChevronRight
+                <HugeiconsIcon icon={ChevronRight}
                   className="text-muted-foreground/60 group-hover:text-muted-foreground size-5 shrink-0"
                   aria-hidden={true}
                 />

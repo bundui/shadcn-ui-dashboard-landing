@@ -1,8 +1,13 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ChevronUp as ChevronUpIcon,
+  DollarSign as DollarSignIcon,
+  HandCoinsIcon
+} from "@hugeicons/core-free-icons";
 import { Bar, BarChart, XAxis } from "recharts";
-import { ChevronUpIcon, DollarSignIcon, HandCoinsIcon } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 import {
@@ -49,7 +54,7 @@ export default function BarChartComponent() {
         <CardDescription>Total Earning</CardDescription>
         <CardAction>
           <Badge variant="outline" className="text-green-600">
-            <ChevronUpIcon className="size-4" /> 24.2%
+            <HugeiconsIcon icon={ChevronUpIcon} className="size-4" /> 24.2%
           </Badge>
         </CardAction>
         <div className="flex items-center gap-4">
@@ -102,7 +107,7 @@ export default function BarChartComponent() {
         <div className="mt-5 space-y-4">
           <div className="flex items-center gap-3">
             <div className="bg-muted flex size-10 items-center justify-center rounded-md border">
-              <HandCoinsIcon className="size-4" />
+              <HugeiconsIcon icon={HandCoinsIcon} className="size-4" />
             </div>
             <div className="space-y-1">
               <div className="font-medium text-sm">Total Revenue</div>
@@ -114,7 +119,7 @@ export default function BarChartComponent() {
           </div>
           <div className="flex items-center gap-3">
             <div className="bg-muted flex size-10 items-center justify-center rounded-md border">
-              <DollarSignIcon className="size-4" />
+              <HugeiconsIcon icon={DollarSignIcon} className="size-4" />
             </div>
             <div className="space-y-1">
               <div className="font-medium text-sm">Total Sales</div>

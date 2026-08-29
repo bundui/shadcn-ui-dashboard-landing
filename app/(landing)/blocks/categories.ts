@@ -3,7 +3,7 @@ export const categories = [
     title: "Shadcn Form Layouts Blocks",
     sidebarTitle: "Form Layouts",
     description:
-      "Ready-to-use shadcn/ui form layout blocks built with React, Tailwind CSS, and Zod validation — designed for real-world data entry needs. Each block is fully responsive, accessible, and easy to customize, so you can ship polished forms without starting from scratch.",
+      "Ready-to-use shadcn/ui form layout blocks built with React, Tailwind CSS, and Zod validation, designed for real-world data entry needs. Each block is fully responsive, accessible, and easy to customize, so you can ship polished forms without starting from scratch.",
     href: "/blocks/form-layouts",
     image: "/images/blocks/form-layouts.png",
     components: [
@@ -27,7 +27,7 @@ export const categories = [
     title: "Shadcn Charts Blocks",
     sidebarTitle: "Charts",
     description:
-      "Beautiful shadcn/ui chart blocks powered by Recharts — bar, line, area, pie, and more, all built with React and Tailwind CSS. Drop them into your dashboard to turn raw data into clear, actionable insights without writing chart logic from scratch.",
+      "Beautiful shadcn/ui chart blocks powered by Recharts: bar, line, area, pie, and more, all built with React and Tailwind CSS. Drop them into your dashboard to turn raw data into clear, actionable insights without writing chart logic from scratch.",
     href: "/blocks/charts",
     image: "/images/blocks/charts.png",
     components: [
@@ -217,7 +217,7 @@ export const categories = [
     title: "Shadcn Login Form Blocks",
     sidebarTitle: "Signin Forms",
     description:
-      "Polished shadcn/ui sign-in form blocks built with React, Tailwind CSS, and Zod validation — covering email/password, social login, and magic link patterns. Each block is fully responsive and accessible, giving your users a smooth, professional authentication experience from day one.",
+      "Polished shadcn/ui sign-in form blocks built with React, Tailwind CSS, and Zod validation, covering email/password, social login, and magic link patterns. Each block is fully responsive and accessible, giving your users a smooth, professional authentication experience from day one.",
     href: "/blocks/sign-in-forms",
     image: "/images/blocks/sign-in-forms.png",
     components: [
@@ -248,7 +248,7 @@ export const categories = [
     title: "Shadcn Stat Cards Blocks",
     sidebarTitle: "Stat Cards",
     description:
-      "Shadcn/ui stat card blocks for displaying KPIs, metrics, and trends at a glance — built with React and Tailwind CSS. Each card features a clean, minimal layout with optional icons and trend indicators, perfect for admin panels and SaaS dashboards.",
+      "Shadcn/ui stat card blocks for displaying KPIs, metrics, and trends at a glance, built with React and Tailwind CSS. Each card features a clean, minimal layout with optional icons and trend indicators, perfect for admin panels and SaaS dashboards.",
     href: "/blocks/stat-cards",
     image: "/images/blocks/stat-cards.png",
     components: [
@@ -322,7 +322,7 @@ export const categories = [
     title: "Shadcn Modal Dialogs Blocks",
     sidebarTitle: "Modal Dialogs",
     description:
-      "Accessible shadcn/ui modal and dialog blocks for confirmations, forms, and alerts — built with React and Tailwind CSS. Each pattern includes proper focus management and smooth animations, so you can handle user interactions cleanly without building from scratch.",
+      "Accessible shadcn/ui modal and dialog blocks for confirmations, forms, and alerts, built with React and Tailwind CSS. Each pattern includes proper focus management and smooth animations, so you can handle user interactions cleanly without building from scratch.",
     href: "/blocks/modal-dialogs",
     image: "/images/blocks/modal-dialogs.png",
     components: [
@@ -355,7 +355,7 @@ export const categories = [
     title: "Shadcn Page Layouts Blocks",
     sidebarTitle: "Page Layouts",
     description:
-      "Full-page shadcn/ui layout blocks combining headers, sidebars, and content areas — built with React and Tailwind CSS. These ready-made structures give your dashboard or admin panel a solid, responsive foundation without having to wire up navigation from scratch.",
+      "Full-page shadcn/ui layout blocks combining headers, sidebars, and content areas, built with React and Tailwind CSS. These ready-made structures give your dashboard or admin panel a solid, responsive foundation without having to wire up navigation from scratch.",
     href: "/blocks/page-layouts",
     image: "/images/blocks/page-layouts.png",
     components: [
@@ -389,7 +389,7 @@ export const categories = [
     title: "Shadcn Sidebar Layouts Blocks",
     sidebarTitle: "Sidebar Layouts",
     description:
-      "Shadcn/ui sidebar layout blocks with collapsible navigation, headers, and main content areas — built with React and Tailwind CSS. Ideal for dashboards and multi-section apps, these layouts let you scaffold a complete app shell in minutes instead of hours.",
+      "Shadcn/ui sidebar layout blocks with collapsible navigation, headers, and main content areas, built with React and Tailwind CSS. Ideal for dashboards and multi-section apps, these layouts let you scaffold a complete app shell in minutes instead of hours.",
     href: "/blocks/sidebar-layouts",
     image: "/images/blocks/sidebar-layouts.png",
     components: [
@@ -400,6 +400,54 @@ export const categories = [
         isPro: true,
         registryName: "sidebar-layout",
         height: 700
+      },
+      {
+        href: "/blocks/sidebar-layouts/2",
+        title: "Sidebar Layout 2",
+        description: "Segments sidebar with search, tabs, and filterable list items.",
+        isPro: true,
+        registryName: "sidebar-layout2",
+        height: 700
+      },
+      {
+        href: "/blocks/sidebar-layouts/3",
+        title: "Sidebar Layout 3",
+        description: "Dual sidebar with icon rail, search, tabs, and collapsible nav tree.",
+        isPro: true,
+        registryName: "sidebar-layout3",
+        height: 700
+      },
+      {
+        href: "/blocks/sidebar-layouts/4",
+        title: "Sidebar Layout 4",
+        description: "Workspace sidebar with switcher, collapsible groups, and channel list.",
+        isPro: true,
+        registryName: "sidebar-layout4",
+        height: 700
+      },
+      {
+        href: "/blocks/sidebar-layouts/5",
+        title: "Sidebar Layout 5",
+        description: "Sidebar with org switcher, notification dots, and collapsible spaces.",
+        isPro: true,
+        registryName: "sidebar-layout5",
+        height: 700
+      },
+      {
+        href: "/blocks/sidebar-layouts/6",
+        title: "Sidebar Layout 6",
+        description: "SaaS sidebar with badges, usage plan card, and user dropdown.",
+        isPro: true,
+        registryName: "sidebar-layout6",
+        height: 800
+      },
+      {
+        href: "/blocks/sidebar-layouts/7",
+        title: "Sidebar Layout 7",
+        description: "Sidebar with plan switcher, search, grouped nav, and shared lists.",
+        isPro: true,
+        registryName: "sidebar-layout7",
+        height: 800
       }
     ]
   },
@@ -407,7 +455,7 @@ export const categories = [
     title: "Shadcn Tables Blocks",
     sidebarTitle: "Tables",
     description:
-      "Powerful shadcn/ui data table blocks built with React, Tailwind CSS, and TanStack Table — featuring sorting, filtering, and pagination out of the box. Drop them into your admin panel or dashboard to handle complex datasets with a clean, professional interface.",
+      "Powerful shadcn/ui data table blocks built with React, Tailwind CSS, and TanStack Table, featuring sorting, filtering, and pagination out of the box. Drop them into your admin panel or dashboard to handle complex datasets with a clean, professional interface.",
     href: "/blocks/tables",
     image: "/images/blocks/tables.png",
     components: [
@@ -417,6 +465,40 @@ export const categories = [
         description: "Data table with columns, rows, and optional actions or badges.",
         isPro: true,
         registryName: "table"
+      }
+    ]
+  },
+  {
+    title: "Shadcn Kanban Blocks",
+    sidebarTitle: "Kanban",
+    description:
+      "Drag-and-drop kanban board blocks built with shadcn/ui, React, Tailwind CSS, and dnd-kit. Sortable columns and task cards with priorities, progress, assignees, and comments, ready to drop into your project management dashboard.",
+    href: "/blocks/kanban",
+    image: "/images/blocks/kanban.png",
+    components: [
+      {
+        href: "/blocks/kanban/1",
+        title: "Kanban Board 1",
+        description: "Drag-and-drop board with sortable columns and task cards.",
+        isPro: true,
+        registryName: "kanban-board",
+        height: 800
+      },
+      {
+        href: "/blocks/kanban/2",
+        title: "Kanban List View",
+        description: "Task list grouped by status with priorities and progress.",
+        isPro: true,
+        registryName: "kanban-list-view",
+        height: 800
+      },
+      {
+        href: "/blocks/kanban/3",
+        title: "Kanban Table View",
+        description: "Task table with status, priority, assignees, and progress.",
+        isPro: true,
+        registryName: "kanban-table-view",
+        height: 700
       }
     ]
   }

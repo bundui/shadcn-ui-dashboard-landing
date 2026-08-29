@@ -20,7 +20,7 @@ export function PricingTables() {
       </p>
       <p>
         You can fully customize plan names, features, prices, and CTA labels.
-        Layout and styling are controlled via Tailwind and component props—add
+        Layout and styling are controlled via Tailwind and component props. Add
         or remove tiers, change grid columns on different breakpoints, or
         restyle cards and buttons. Because the code is in your project, you
         can wire buttons to checkout, signup, or analytics without being

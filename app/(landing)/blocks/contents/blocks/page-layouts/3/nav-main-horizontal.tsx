@@ -1,7 +1,8 @@
 // @ts-nocheck
 "use client";
 
-import { type LucideIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import type { IconSvgElement as LucideIcon } from "@hugeicons/react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -52,7 +53,7 @@ export function NavMainHorizontal({
                           {link.type === "icon" && "icon" in item && (
                             <div className="flex items-center gap-2">
                               {item.icon && (
-                                <item.icon
+                                <HugeiconsIcon icon={item.icon}
                                   size={16}
                                   className="text-foreground opacity-60"
                                   aria-hidden="true"

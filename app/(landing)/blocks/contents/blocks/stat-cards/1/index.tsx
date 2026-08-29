@@ -1,4 +1,15 @@
 // @ts-nocheck
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ArrowDown,
+  ArrowUp,
+  MoreHorizontal,
+  Pin,
+  Settings,
+  Share2,
+  Trash,
+  AlertTriangle as TriangleAlert
+} from "@hugeicons/core-free-icons";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,16 +27,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {
-  ArrowDown,
-  ArrowUp,
-  MoreHorizontal,
-  Pin,
-  Settings,
-  Share2,
-  Trash,
-  TriangleAlert
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const stats = [
@@ -88,26 +89,26 @@ export default function Page() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm">
-                    <MoreHorizontal />
+                    <HugeiconsIcon icon={MoreHorizontal} />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" side="bottom">
                   <DropdownMenuItem>
-                    <Settings />
+                    <HugeiconsIcon icon={Settings} />
                     Settings
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <TriangleAlert /> Add Alert
+                    <HugeiconsIcon icon={TriangleAlert} /> Add Alert
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Pin /> Pin to Dashboard
+                    <HugeiconsIcon icon={Pin} /> Pin to Dashboard
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Share2 /> Share
+                    <HugeiconsIcon icon={Share2} /> Share
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem variant="destructive">
-                    <Trash />
+                    <HugeiconsIcon icon={Trash} />
                     Remove
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -126,7 +127,7 @@ export default function Page() {
                 "text-green-500": stat.positive,
                 "text-destructive": !stat.positive
               })}>
-              {stat.delta > 0 ? <ArrowUp /> : <ArrowDown />}
+              {stat.delta > 0 ? <HugeiconsIcon icon={ArrowUp} /> : <HugeiconsIcon icon={ArrowDown} />}
               {stat.delta}%
             </Badge>
           </CardContent>

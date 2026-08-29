@@ -1,5 +1,9 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Search
+} from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import {
   Sidebar,
@@ -17,7 +21,6 @@ import {
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useMemo } from "react";
 import { categories } from "../../categories";
-import { Search } from "lucide-react";
 import { Label } from "@/components/ui/label";
 
 export default function ComponentsSidebar() {
@@ -53,7 +56,7 @@ export default function ComponentsSidebar() {
               onClick={(e) => e.stopPropagation()}
               className="pl-8"
             />
-            <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
+            <HugeiconsIcon icon={Search} className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarHeader>

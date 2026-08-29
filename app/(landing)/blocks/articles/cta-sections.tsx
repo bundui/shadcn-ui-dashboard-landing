@@ -13,7 +13,7 @@ export function CtaSections() {
         Typical use cases include the end of feature or pricing sections,
         before the footer, in the middle of long landing pages, or in email
         capture flows. They work in Next.js app or page routes, in marketing
-        sites, SaaS dashboards, and docs—anywhere you need a focused “next
+        sites, SaaS dashboards, and docs, anywhere you need a focused “next
         step” without designing a full section from scratch. You can repeat
         different CTA blocks on the same page for A/B testing or distinct
         offers.

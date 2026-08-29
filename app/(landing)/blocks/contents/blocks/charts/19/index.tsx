@@ -1,9 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ChevronRight as ChevronRightIcon
+} from "@hugeicons/core-free-icons";
 import React from "react";
 import { Label, Pie, PieChart } from "recharts";
-import { ChevronRightIcon } from "lucide-react";
 
 import {
   Card,
@@ -74,7 +77,7 @@ export default function PieChartComponent() {
         <CardDescription>Data from 1-12 Apr, 2024</CardDescription>
         <CardAction>
           <Button size="icon" variant="outline">
-            <ChevronRightIcon />
+            <HugeiconsIcon icon={ChevronRightIcon} />
           </Button>
         </CardAction>
       </CardHeader>

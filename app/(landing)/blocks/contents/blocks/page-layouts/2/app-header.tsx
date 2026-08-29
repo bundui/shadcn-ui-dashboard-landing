@@ -1,4 +1,9 @@
 // @ts-nocheck
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Bell as BellIcon,
+  MailIcon
+} from "@hugeicons/core-free-icons";
 import * as React from "react";
 
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -8,7 +13,6 @@ import { NavMainHorizontal } from "./nav-main-horizontal";
 import { navigationLinks } from "./app-sidebar";
 import { NavUser } from "./nav-user";
 import { Logo } from "./logo";
-import { BellIcon, MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -30,10 +34,10 @@ export function AppHeader() {
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
           <Button size="icon-sm" variant="ghost">
-            <MailIcon />
+            <HugeiconsIcon icon={MailIcon} />
           </Button>
           <Button size="icon-sm" variant="ghost" className="relative">
-            <BellIcon />
+            <HugeiconsIcon icon={BellIcon} />
             <Badge className="absolute -top-2 left-full min-w-5 -translate-x-1/2 px-1 text-[10px]">
               5
             </Badge>

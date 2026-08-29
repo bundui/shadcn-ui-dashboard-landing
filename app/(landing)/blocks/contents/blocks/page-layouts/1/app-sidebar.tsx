@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import * as React from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
   BookOpen,
   Bot,
@@ -10,8 +10,9 @@ import {
   Map,
   PieChart,
   Settings2,
-  SquareTerminal
-} from "lucide-react";
+  CommandLineIcon as SquareTerminal
+} from "@hugeicons/core-free-icons";
+import * as React from "react";
 
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
@@ -76,7 +77,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
+                  <HugeiconsIcon icon={Command} className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">Acme Inc</span>

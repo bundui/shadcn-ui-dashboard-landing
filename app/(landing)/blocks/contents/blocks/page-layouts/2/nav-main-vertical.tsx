@@ -1,8 +1,11 @@
 // @ts-nocheck
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
 
+import type { IconSvgElement as LucideIcon } from "@hugeicons/react";
+import {
+  ChevronRight
+} from "@hugeicons/core-free-icons";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,

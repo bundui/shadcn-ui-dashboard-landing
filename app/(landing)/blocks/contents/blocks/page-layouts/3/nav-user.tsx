@@ -1,8 +1,15 @@
 // @ts-nocheck
 "use client";
 
-import { BadgeCheck, Bell, CreditCard, LogOut, Sparkles } from "lucide-react";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  BadgeCheck,
+  Bell,
+  CreditCard,
+  LogOut,
+  Sparkles
+} from "@hugeicons/core-free-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -48,28 +55,28 @@ export function NavUser() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Sparkles />
+            <HugeiconsIcon icon={Sparkles} />
             Upgrade to Pro
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <BadgeCheck />
+            <HugeiconsIcon icon={BadgeCheck} />
             Account
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <CreditCard />
+            <HugeiconsIcon icon={CreditCard} />
             Billing
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Bell />
+            <HugeiconsIcon icon={Bell} />
             Notifications
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <LogOut />
+          <HugeiconsIcon icon={LogOut} />
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>

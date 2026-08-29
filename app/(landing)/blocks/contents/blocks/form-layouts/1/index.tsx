@@ -1,6 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  AlertCircleIcon,
+  User,
+  X as XIcon
+} from "@hugeicons/core-free-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -24,7 +30,6 @@ import {
   SelectValue
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { AlertCircleIcon, User, XIcon } from "lucide-react";
 import { useFileUpload } from "@/hooks/use-file-upload";
 import { Form } from "@/components/ui/form";
 
@@ -165,7 +170,7 @@ export default function ProfileForm() {
                   <Avatar className="size-12 border">
                     <AvatarImage src={`${avatarUrl}`} />
                     <AvatarFallback className="bg-muted">
-                      <User className="text-muted-foreground h-6 w-6" />
+                      <HugeiconsIcon icon={User} className="text-muted-foreground h-6 w-6" />
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex gap-2">
@@ -188,7 +193,7 @@ export default function ProfileForm() {
                         onClick={() => removeFile(files[0]?.id)}
                         size="icon"
                         aria-label="Remove image">
-                        <XIcon className="size-3.5" />
+                        <HugeiconsIcon icon={XIcon} className="size-3.5" />
                       </Button>
                     )}
                   </div>
@@ -201,7 +206,7 @@ export default function ProfileForm() {
                 </div>
                 {fileUploadErrors.length > 0 && (
                   <div className="text-destructive flex items-center gap-1 text-xs" role="alert">
-                    <AlertCircleIcon className="size-3 shrink-0" />
+                    <HugeiconsIcon icon={AlertCircleIcon} className="size-3 shrink-0" />
                     <span>{fileUploadErrors[0]}</span>
                   </div>
                 )}

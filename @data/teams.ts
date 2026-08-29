@@ -21,7 +21,7 @@ export const teamList: TeamProps[] = [
     socialNetworks: [
       {
         name: "LinkedIn",
-        url: "https://shadcnuikit.com/",
+        url: "https://shadcnuidashboard.com/",
       },
     ],
   },
@@ -34,7 +34,7 @@ export const teamList: TeamProps[] = [
     socialNetworks: [
       {
         name: "LinkedIn",
-        url: "https://shadcnuikit.com/",
+        url: "https://shadcnuidashboard.com/",
       },
       {
         name: "Github",
@@ -51,7 +51,7 @@ export const teamList: TeamProps[] = [
     socialNetworks: [
       {
         name: "LinkedIn",
-        url: "https://shadcnuikit.com/",
+        url: "https://shadcnuidashboard.com/",
       },
       {
         name: "Github",

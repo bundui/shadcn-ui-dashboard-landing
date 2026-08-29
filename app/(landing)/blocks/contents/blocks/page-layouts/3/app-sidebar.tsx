@@ -1,8 +1,12 @@
 // @ts-nocheck
 "use client";
 
+import {
+  BookOpenIcon,
+  Info as InfoIcon,
+  LifeBuoy as LifeBuoyIcon
+} from "@hugeicons/core-free-icons";
 import * as React from "react";
-import { BookOpenIcon, InfoIcon, LifeBuoyIcon } from "lucide-react";
 
 import {
   Sidebar,

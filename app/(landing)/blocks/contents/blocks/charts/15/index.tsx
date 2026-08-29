@@ -1,8 +1,13 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ClockIcon,
+  MessageCircleReplyIcon,
+  TicketIcon
+} from "@hugeicons/core-free-icons";
 import { Label, Pie, PieChart } from "recharts";
-import { ClockIcon, MessageCircleReplyIcon, TicketIcon } from "lucide-react";
 
 import {
   ChartConfig,
@@ -85,7 +90,7 @@ export default function PieChartComponent() {
       <CardFooter className="flex-col items-start justify-start gap-4 border-t md:flex-row md:justify-between lg:items-center lg:gap-0">
         <div className="flex w-full items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-full border">
-            <TicketIcon className="size-4" />
+            <HugeiconsIcon icon={TicketIcon} className="size-4" />
           </div>
           <div className="flex flex-1 flex-col justify-between md:justify-normal gap-1">
             <div className="text-sm">New Tickets</div>
@@ -94,7 +99,7 @@ export default function PieChartComponent() {
         </div>
         <div className="flex w-full items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-full border">
-            <ClockIcon className="size-4" />
+            <HugeiconsIcon icon={ClockIcon} className="size-4" />
           </div>
           <div className="flex flex-1 flex-col justify-between md:justify-normal gap-1">
             <div className="text-sm">Open Tickets</div>
@@ -103,7 +108,7 @@ export default function PieChartComponent() {
         </div>
         <div className="flex w-full items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-full border">
-            <MessageCircleReplyIcon className="size-4" />
+            <HugeiconsIcon icon={MessageCircleReplyIcon} className="size-4" />
           </div>
           <div className="flex flex-1 flex-col justify-between md:justify-normal gap-1">
             <div className="text-sm">Response Time</div>

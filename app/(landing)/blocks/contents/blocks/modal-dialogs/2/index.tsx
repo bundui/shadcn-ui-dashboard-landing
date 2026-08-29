@@ -1,6 +1,10 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CopyIcon
+} from "@hugeicons/core-free-icons";
 import React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -28,7 +32,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { CopyIcon } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -83,7 +86,7 @@ export default function LoginForm() {
                           className="rounded-full"
                           size="icon-xs"
                         >
-                          <CopyIcon />
+                          <HugeiconsIcon icon={CopyIcon} />
                         </InputGroupButton>
                       </TooltipTrigger>
                       <TooltipContent>Copy to link</TooltipContent>

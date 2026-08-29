@@ -6,7 +6,7 @@ import BlockListItem from "@/components/block-list-item";
 
 export async function generateMetadata(): Promise<Metadata> {
   return generateMeta({
-    title: "Free & Premium Dashboard Blocks for Shadcn UI",
+    title: "Free & Premium Dashboard Shadcn Blocks",
     description:
       "Browse free & premium Shadcn UI Blocks & Sections. Copy and paste instantly or install via the shadcn CLI.",
     canonical: "/blocks"
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Page() {
   return (
     <section>
-      <div className="relative mx-auto max-w-7xl space-y-8 border-x py-6 lg:space-y-14 lg:px-10 lg:py-10">
+      <div className="relative mx-auto max-w-7xl space-y-8 px-4 py-6 lg:space-y-14 lg:px-10 lg:py-10">
         <header className="space-y-3 text-balance lg:max-w-4xl">
-          <h1 className="font-heading text-3xl lg:text-4xl">Shadcn Dashboard Blocks</h1>
+          <h1 className="font-heading text-3xl lg:text-4xl">Shadcn UI Dashboard Blocks</h1>
           <p className="text-muted-foreground leading-relaxed text-balance">
             Explore our carefully crafted collection of {blocksCount.total} shadcn block sets. Built
             with Tailwind CSS, shadcn/ui, and React. Copy and paste the code instantly or download

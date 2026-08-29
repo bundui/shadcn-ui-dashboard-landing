@@ -1,3 +1,8 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ChevronRight,
+  LockIcon
+} from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,7 +12,6 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { ChevronRight, LockIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function ProSection() {
@@ -16,7 +20,7 @@ export default function ProSection() {
       <CardHeader className="block lg:grid">
         <CardTitle>
           <h5 className="flex items-center gap-3 text-lg font-semibold lg:text-2xl">
-            <LockIcon className="size-5 opacity-50" /> Unlock Premium Blocks &
+            <HugeiconsIcon icon={LockIcon} className="size-5 opacity-50" /> Unlock Premium Blocks &
             Sections
           </h5>
         </CardTitle>
@@ -27,7 +31,7 @@ export default function ProSection() {
         <CardAction className="hidden lg:flex">
           <Button asChild>
             <Link href="/pricing">
-              Unlock Now <ChevronRight />
+              Unlock Now <HugeiconsIcon icon={ChevronRight} />
             </Link>
           </Button>
         </CardAction>
@@ -36,7 +40,7 @@ export default function ProSection() {
         <div className="block lg:hidden">
           <Button className="w-full lg:w-auto" size="lg" asChild>
             <Link href="/pricing">
-              Unlock Now <ChevronRight />
+              Unlock Now <HugeiconsIcon icon={ChevronRight} />
             </Link>
           </Button>
         </div>

@@ -3,7 +3,7 @@ export function Integrations() {
     <>
       <p>
         Integration blocks are shadcn blocks that showcase third-party tools,
-        APIs, or platforms—logos, short descriptions, and optional CTAs. Built
+        APIs, or platforms: logos, short descriptions, and optional CTAs. Built
         with React, TypeScript, and shadcn/ui components plus Tailwind CSS, they
         provide a repeatable layout so you can highlight partnerships, app
         ecosystems, or tech stack without designing each section by hand.

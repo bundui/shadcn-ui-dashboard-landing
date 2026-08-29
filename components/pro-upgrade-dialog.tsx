@@ -1,4 +1,8 @@
-import { LockIcon, ChevronRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  LockIcon,
+  ChevronRight
+} from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
@@ -14,7 +18,7 @@ export function ProUpgradeDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline">
-          <LockIcon className="size-4" /> Get the Code
+          <HugeiconsIcon icon={LockIcon} className="size-4" /> Get the Code
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md">
@@ -23,7 +27,7 @@ export function ProUpgradeDialog() {
         </VisuallyHidden.Root>
         <div className="flex flex-col items-center gap-4 py-4 text-center">
           <div className="flex size-12 items-center justify-center rounded-full bg-muted">
-            <LockIcon className="size-5 text-muted-foreground" />
+            <HugeiconsIcon icon={LockIcon} className="size-5 text-muted-foreground" />
           </div>
           <div className="space-y-1">
             <h3 className="font-heading text-lg font-semibold">Pro Component</h3>
@@ -34,7 +38,7 @@ export function ProUpgradeDialog() {
           </div>
           <Button asChild className="w-full">
             <Link href="/pricing">
-              Unlock Pro Plan <ChevronRight className="size-4" />
+              Unlock Pro Plan <HugeiconsIcon icon={ChevronRight} className="size-4" />
             </Link>
           </Button>
         </div>

@@ -10,7 +10,7 @@ export function Navbars() {
         breakpoints.
       </p>
       <p>
-        They fit any site or app that needs a global nav—landing pages,
+        They fit any site or app that needs a global nav: landing pages,
         dashboards, docs, ecommerce. Use one navbar per layout; links and
         structure are in your code. They work in Next.js and other React
         frameworks and support light and dark themes, with patterns like

@@ -1,6 +1,10 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  FolderUploadIcon as FolderUp
+} from "@hugeicons/core-free-icons";
 import {
   Card,
   CardAction,
@@ -18,7 +22,6 @@ import {
 } from "@/components/ui/chart";
 import { Label, Pie, PieChart } from "recharts";
 import { Button } from "@/components/ui/button";
-import { FolderUp } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuItem,
@@ -69,7 +72,7 @@ export default function PieChartComponent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
-                <FolderUp /> <span className="hidden lg:inline">Export</span>
+                <HugeiconsIcon icon={FolderUp} /> <span className="hidden lg:inline">Export</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

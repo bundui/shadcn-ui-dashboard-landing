@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Refund Policy",
+  title: "Terms and Conditions",
   openGraph: {
     images: [`/seo.jpg`]
   }
@@ -9,15 +9,20 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="py-8 lg:py-16">
+    <section className="px-4 py-16 lg:py-24">
       <div className="mx-auto max-w-(--breakpoint-md) mb-8 lg:mb-12">
-        <h1 className="text-3xl font-bold mb-8 sm:text-4xl">Terms and Conditions</h1>
+        <header className="mb-10">
+          <p className="text-muted-foreground mb-3 font-mono text-xs tracking-widest uppercase">
+            Legal
+          </p>
+          <h1 className="font-heading text-4xl md:text-5xl">Terms and Conditions</h1>
+        </header>
         <article className="ps-4">
           <ol className="list-decimal space-y-6">
             <li>
               <h2 className="text-2xl font-semibold mb-2">General Information</h2>
               <p>
-                This website (<a href="https://shadcnuikit.com/">shadcnuikit.com</a>) is operated by{" "}
+                This website (<a href="https://shadcnuidashboard.com/">shadcnuidashboard.com</a>) is operated by{" "}
                 <strong>Bundui</strong>. By using the Site, you agree to the terms and conditions
                 outlined below. If you do not agree with these terms, please refrain from using the
                 Site.
@@ -85,7 +90,7 @@ export default function Home() {
               </p>
               <address className="flex gap-2 not-italic">
                 <strong>Bundui</strong>
-                <a href="mailto:contact@shadcnuikit.com">contact@shadcnuikit.com</a>
+                <a href="mailto:contact@shadcnuidashboard.com">contact@shadcnuidashboard.com</a>
               </address>
             </li>
           </ol>

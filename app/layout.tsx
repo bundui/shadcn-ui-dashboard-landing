@@ -1,13 +1,23 @@
 import React from "react";
-import { Inter, Cal_Sans, DM_Sans, Outfit } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/sonner";
+import CrispChat from "@/components/crisp-chat";
 
-const dmSans = DM_Sans({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
-const outfitHeading = Outfit({subsets:['latin'],variable:'--font-heading'});
+const notoSerifHeading = Manrope({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: "700"
+});
+
+export const metadata = {
+  metadataBase: new URL(process.env.BASE_URL || "https://shadcnuidashboard.com")
+};
 
 export default function RootLayout({
   children
@@ -17,16 +27,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", outfitHeading.variable, "font-sans", dmSans.variable)}
+      className={cn("scroll-smooth antialiased", notoSerifHeading.variable, "font-sans", inter.variable)}
       suppressHydrationWarning>
       <body suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange>
           <TooltipProvider>{children}</TooltipProvider>
+          <Toaster />
         </ThemeProvider>
+        <CrispChat />
       </body>
     </html>
   );

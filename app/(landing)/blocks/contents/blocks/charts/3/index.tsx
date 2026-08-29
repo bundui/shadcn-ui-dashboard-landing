@@ -1,6 +1,10 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  FolderUploadIcon as FolderUp
+} from "@hugeicons/core-free-icons";
 import {
   Card,
   CardAction,
@@ -21,7 +25,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FolderUp } from "lucide-react";
 import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import { Badge } from "@/components/ui/badge";
 
@@ -60,7 +63,7 @@ export default function LineChartComponent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
-                <FolderUp /> <span className="hidden lg:inline">Export</span>
+                <HugeiconsIcon icon={FolderUp} /> <span className="hidden lg:inline">Export</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

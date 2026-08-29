@@ -1,12 +1,13 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  AreaChartIcon,
-  DollarSignIcon,
-  FolderUp,
-  HandCoinsIcon,
-} from "lucide-react";
+  ChartArea as AreaChartIcon,
+  DollarSign as DollarSignIcon,
+  FolderUploadIcon as FolderUp,
+  HandCoinsIcon
+} from "@hugeicons/core-free-icons";
 import { Bar, BarChart, XAxis } from "recharts";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -63,7 +64,7 @@ export default function BarChartComponent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
-                <FolderUp /> <span className="hidden lg:inline">Export</span>
+                <HugeiconsIcon icon={FolderUp} /> <span className="hidden lg:inline">Export</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -129,7 +130,7 @@ export default function BarChartComponent() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <div className="bg-background border-border flex size-8 items-center justify-center rounded-md border">
-                      <DollarSignIcon className="size-4" />
+                      <HugeiconsIcon icon={DollarSignIcon} className="size-4" />
                     </div>
                     <span>Earnings</span>
                   </div>
@@ -141,7 +142,7 @@ export default function BarChartComponent() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <div className="bg-background border-border flex size-8 items-center justify-center rounded-md border">
-                      <AreaChartIcon className="size-4" />
+                      <HugeiconsIcon icon={AreaChartIcon} className="size-4" />
                     </div>
                     <span>Profit</span>
                   </div>
@@ -153,7 +154,7 @@ export default function BarChartComponent() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center justify-between gap-4">
                     <div className="bg-background border-border flex size-8 items-center justify-center rounded-md border">
-                      <HandCoinsIcon className="size-4" />
+                      <HugeiconsIcon icon={HandCoinsIcon} className="size-4" />
                     </div>
                     <span>Expense</span>
                   </div>

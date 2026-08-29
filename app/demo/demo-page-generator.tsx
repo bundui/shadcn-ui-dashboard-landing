@@ -1,10 +1,13 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  LoaderCircle as Loader2
+} from "@hugeicons/core-free-icons";
 import { Suspense, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
 
 const GOOGLE_FONTS = new Set(["Inter", "Roboto", "Poppins", "Nunito", "DM Sans"]);
 
@@ -137,7 +140,7 @@ export default function DemoPageGenerator() {
         <Suspense
           fallback={
             <div className="flex h-32 items-center justify-center">
-              <Loader2 className="text-muted-foreground size-5 animate-spin" />
+              <HugeiconsIcon icon={Loader2} className="text-muted-foreground size-5 animate-spin" />
             </div>
           }>
           {Component ? (

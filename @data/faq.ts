@@ -6,39 +6,39 @@ interface FAQProps {
 
 export const FAQList: FAQProps[] = [
   {
-    question: "How does the free trial work?",
+    question: "What exactly do I get after purchase?",
     answer:
-      "Our free trial gives you access to all features for a limited time. No credit card is required, and you can cancel anytime.",
+      "Instant access to your account dashboard, where you can request access to the private GitHub repository or download the full source code as a zip. Your purchase is linked to your email automatically.",
     value: "item-1"
   },
   {
-    question: "Can I change my plan later?",
+    question: "What's the difference between the Pro and Premium licenses?",
     answer:
-      "Absolutely! You can upgrade, downgrade, or modify your plan at any time through your account settings.",
+      "The Pro license covers one developer. The Premium license covers up to 20 members. Each member gets their own sign-in, their own GitHub repository access and their own license keys, managed from your Teams page.",
     value: "item-2"
   },
   {
-    question: "Is customer support available 24/7?",
+    question: "Can I upgrade from Pro to Premium later?",
     answer:
-      "Yes, our support team is available around the clock to assist you with any questions or issues.",
+      "Yes. If you own a Pro license, you can upgrade to a Premium license from your account dashboard by paying only the difference, and your existing access carries over.",
     value: "item-3"
   },
   {
-    question: "How secure is my data?",
+    question: "Do I get updates after buying?",
     answer:
-      "We prioritize your data privacy with robust security protocols, including end-to-end encryption and GDPR compliance.",
+      "Yes. You keep access to the private repository, so you can pull new pages, blocks and fixes as they ship. Every release is documented on the Updates page.",
     value: "item-4"
   },
   {
-    question: "Do you offer custom plans for businesses?",
+    question: "Which frameworks are supported?",
     answer:
-      "Yes, we offer flexible, custom plans designed to meet the unique needs of businesses of all sizes. Contact us for more details.",
+      "The template is built with Next.js 15, React 19, Tailwind CSS 4 and TypeScript. Additional stacks are planned, so check the Roadmap page for what's coming next.",
     value: "item-5"
   },
   {
-    question: "What payment methods do you accept?",
+    question: "How does payment work?",
     answer:
-      "We accept major credit components, PayPal, and bank transfers for easy and convenient payment options.",
+      "Checkout is a one-time payment handled securely by Paddle. Major credit cards are supported and Paddle issues the invoice. No subscription, no recurring fees.",
     value: "item-6"
   }
 ];

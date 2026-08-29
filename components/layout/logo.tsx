@@ -12,12 +12,12 @@ export default function Logo(props: Props) {
     <Link href="/" {...props}>
       <Image
         src="/logo.png"
-        alt="Shadcn Dashboard dashboard template logo"
+        alt="Shadcn UI Dashboard dashboard template logo"
         width={28}
         height={28}
         className="size-6 rounded-sm"
       />
-      <span className="text-base font-medium">Shadcn Dashboard</span>
+      <span className="text-base font-medium">Shadcn UI Dashboard</span>
     </Link>
   );
 }

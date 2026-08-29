@@ -1,8 +1,12 @@
 // @ts-nocheck
 "use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import type { IconSvgElement as LucideIcon } from "@hugeicons/react";
+import {
+  ChevronRight
+} from "@hugeicons/core-free-icons";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
@@ -39,7 +43,7 @@ export function NavMain({
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
                 <a href={item.url}>
-                  <item.icon />
+                  <HugeiconsIcon icon={item.icon} />
                   <span>{item.title}</span>
                 </a>
               </SidebarMenuButton>
@@ -47,7 +51,7 @@ export function NavMain({
                 <>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuAction className="data-[state=open]:rotate-90">
-                      <ChevronRight />
+                      <HugeiconsIcon icon={ChevronRight} />
                       <span className="sr-only">Toggle</span>
                     </SidebarMenuAction>
                   </CollapsibleTrigger>

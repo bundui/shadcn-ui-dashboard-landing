@@ -9,9 +9,14 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="py-8 lg:py-16">
+    <section className="px-4 py-16 lg:py-24">
       <div className="mx-auto max-w-(--breakpoint-md) mb-8 lg:mb-12">
-        <h1 className="text-3xl font-bold mb-8 sm:text-4xl">Privacy Policy</h1>
+        <header className="mb-10">
+          <p className="text-muted-foreground mb-3 font-mono text-xs tracking-widest uppercase">
+            Legal
+          </p>
+          <h1 className="font-heading text-4xl md:text-5xl">Privacy Policy</h1>
+        </header>
         <article>
           <p>
             Your privacy is important to us and protecting your personal data is one of our highest

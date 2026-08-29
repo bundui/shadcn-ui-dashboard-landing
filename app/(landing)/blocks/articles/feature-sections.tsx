@@ -7,7 +7,7 @@ export function FeatureSections() {
         and short description per item. Built with React and TypeScript, they
         use shadcn/ui components and Tailwind CSS for layout and styling.
         They answer “what does this do?” and “why does it matter?” in a
-        consistent, repeatable structure—ideal for landing pages, product
+        consistent, repeatable structure, ideal for landing pages, product
         pages, and docs.
       </p>
       <p>

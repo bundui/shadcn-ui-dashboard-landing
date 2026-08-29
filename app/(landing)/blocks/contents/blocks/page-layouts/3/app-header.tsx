@@ -1,4 +1,9 @@
 // @ts-nocheck
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Bell as BellIcon,
+  MailIcon
+} from "@hugeicons/core-free-icons";
 import * as React from "react";
 
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -8,7 +13,6 @@ import { NavMainHorizontal } from "./nav-main-horizontal";
 import { navigationLinks } from "./app-sidebar";
 import { NavUser } from "./nav-user";
 import { Logo } from "./logo";
-import { BellIcon, MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./theme-toggle";
 
@@ -31,11 +35,11 @@ export function AppHeader() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button size="icon-sm" variant="ghost" className="relative">
-            <MailIcon />
+            <HugeiconsIcon icon={MailIcon} />
             <span className="bg-foreground absolute end-0 top-0 inline size-1.5 rounded-full" />
           </Button>
           <Button size="icon-sm" variant="ghost" className="relative">
-            <BellIcon />
+            <HugeiconsIcon icon={BellIcon} />
             <span className="bg-foreground absolute end-0 top-0 inline size-1.5 rounded-full" />
           </Button>
         </div>

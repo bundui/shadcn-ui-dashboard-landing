@@ -1,5 +1,9 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ArrowLeft,
+  ArrowRight
+} from "@hugeicons/core-free-icons";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type NavigationItem = {
@@ -32,7 +36,7 @@ export default function PaginationButtons({
             className="flex w-full items-center gap-4"
           >
             <span className="bg-background flex size-9 items-center justify-center rounded-full border">
-              <ArrowLeft className="size-4 shrink-0" />
+              <HugeiconsIcon icon={ArrowLeft} className="size-4 shrink-0" />
             </span>
             <div className="flex flex-col items-start gap-1">
               <span className="text-muted-foreground text-xs">Previous</span>
@@ -63,7 +67,7 @@ export default function PaginationButtons({
               </span>
             </div>
             <span className="bg-background flex size-9 items-center justify-center rounded-full border">
-              <ArrowRight className="size-4 shrink-0" />
+              <HugeiconsIcon icon={ArrowRight} className="size-4 shrink-0" />
             </span>
           </Link>
         </Button>

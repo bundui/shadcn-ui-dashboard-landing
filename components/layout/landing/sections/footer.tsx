@@ -2,19 +2,35 @@ import Link from "next/link";
 import Logo from "@/components/layout/logo";
 import React from "react";
 import { Separator } from "@/components/ui/separator";
+import { categories } from "@/app/(landing)/blocks/categories";
 
 export const FooterSection = () => {
   return (
     <footer className="border-t">
-      <div className="mx-auto max-w-7xl space-y-10 border-x px-4 py-6 lg:px-6">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="col-span-1 md:col-span-2">
+      <div className="mx-auto max-w-7xl space-y-10 px-4 py-6 lg:px-6">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-5">
+          <div className="col-span-1 sm:col-span-2 md:col-span-2">
             <Logo className="mb-4 flex items-center gap-2" />
             <p className="text-muted-foreground text-sm text-balance">
               The most comprehensive and modern admin dashboard template. Built with React,
               TypeScript, and Tailwind CSS for maximum performance and customization. shadcn/ui is
               compatible.
             </p>
+          </div>
+
+          <div>
+            <h3 className="mb-4 font-semibold">Blocks</h3>
+            <ul className="text-muted-foreground space-y-2">
+              {categories.map((category) => (
+                <li key={category.href}>
+                  <Link
+                    href={category.href}
+                    className="hover:text-primary text-sm transition-colors hover:underline">
+                    {category.sidebarTitle}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -32,11 +48,6 @@ export const FooterSection = () => {
                   href="/ecommerce"
                   className="hover:text-primary text-sm transition-colors hover:underline">
                   Live Demo
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="text-sm transition-colors">
-                  Features
                 </Link>
               </li>
               <li>
@@ -70,20 +81,8 @@ export const FooterSection = () => {
                 </Link>
               </li>
               <li className="hover:text-primary cursor-pointer text-sm transition-colors hover:underline">
-                <Link href="/refund-policy" className="transition-colors">
-                  Refund Policy
-                </Link>
-              </li>
-              <li className="hover:text-primary cursor-pointer text-sm transition-colors hover:underline">
                 <Link href="/terms-conditions" className="transition-colors">
                   Terms of Service
-                </Link>
-              </li>
-              <li className="hover:text-primary cursor-pointer text-sm transition-colors hover:underline">
-                <Link
-                  href="/contact"
-                  className="hover:text-primary text-sm transition-colors hover:underline">
-                  Support
                 </Link>
               </li>
             </ul>
@@ -93,8 +92,8 @@ export const FooterSection = () => {
 
       <Separator />
 
-      <div className="text-muted-foreground mx-auto max-w-7xl border-x py-4 text-center text-xs">
-        <p>&copy; {new Date().getFullYear()} Shadcn Dashboard. All rights reserved.</p>
+      <div className="text-muted-foreground mx-auto max-w-7xl px-4 py-4 text-center text-xs">
+        <p>&copy; {new Date().getFullYear()} Shadcn UI Dashboard. All rights reserved.</p>
       </div>
     </footer>
   );

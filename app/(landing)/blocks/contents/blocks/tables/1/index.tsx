@@ -1,7 +1,15 @@
 // @ts-nocheck
 "use client";
 
-import { CheckCircle, FileTextIcon, Loader2, PauseIcon, PlayIcon, Trash2Icon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CheckCircle,
+  FileText as FileTextIcon,
+  LoaderCircle as Loader2,
+  PauseIcon,
+  PlayIcon,
+  Trash2 as Trash2Icon
+} from "@hugeicons/core-free-icons";
 import { useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
@@ -189,9 +197,9 @@ export default function Table02() {
                       onClick={() => handleAction(task, "start")}
                       disabled={busy}>
                       {startPending ? (
-                        <Loader2 className="size-4 animate-spin" />
+                        <HugeiconsIcon icon={Loader2} className="size-4 animate-spin" />
                       ) : (
-                        <PlayIcon className="size-4" />
+                        <HugeiconsIcon icon={PlayIcon} className="size-4" />
                       )}
                     </Button>
                   </TooltipTrigger>
@@ -209,9 +217,9 @@ export default function Table02() {
                         onClick={() => handleAction(task, "pause")}
                         disabled={busy}>
                         {pausePending ? (
-                          <Loader2 className="size-4 animate-spin" />
+                          <HugeiconsIcon icon={Loader2} className="size-4 animate-spin" />
                         ) : (
-                          <PauseIcon className="size-4" />
+                          <HugeiconsIcon icon={PauseIcon} className="size-4" />
                         )}
                       </Button>
                     </TooltipTrigger>
@@ -226,9 +234,9 @@ export default function Table02() {
                         onClick={() => handleAction(task, "complete")}
                         disabled={busy}>
                         {completePending ? (
-                          <Loader2 className="size-4 animate-spin" />
+                          <HugeiconsIcon icon={Loader2} className="size-4 animate-spin" />
                         ) : (
-                          <CheckCircle className="size-4" />
+                          <HugeiconsIcon icon={CheckCircle} className="size-4" />
                         )}
                       </Button>
                     </TooltipTrigger>
@@ -245,9 +253,9 @@ export default function Table02() {
                     onClick={() => handleAction(task, "delete")}
                     disabled={busy}>
                     {deletePending ? (
-                      <Loader2 className="size-4 animate-spin" />
+                      <HugeiconsIcon icon={Loader2} className="size-4 animate-spin" />
                     ) : (
-                      <Trash2Icon className="size-4" />
+                      <HugeiconsIcon icon={Trash2Icon} className="size-4" />
                     )}
                   </Button>
                 </TooltipTrigger>
@@ -261,7 +269,7 @@ export default function Table02() {
                     className="h-8 w-8"
                     onClick={() => handleAction(task, "view")}
                     disabled={busy}>
-                    <FileTextIcon className="size-4" />
+                    <HugeiconsIcon icon={FileTextIcon} className="size-4" />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>View Details</TooltipContent>

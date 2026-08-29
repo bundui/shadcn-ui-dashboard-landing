@@ -1,10 +1,14 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  FullscreenIcon,
+  HomeIcon
+} from "@hugeicons/core-free-icons";
 import { Metadata } from "next";
 import { generateMeta } from "@/lib/metadata";
 import { categories } from "../categories";
 import ComponentIframe from "./components/component-iframe";
 import CodeDialog from "./components/code-dialog";
 import Link from "next/link";
-import { FullscreenIcon, HomeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import ViewportToolbar from "@/components/viewport-toolbar";
@@ -70,12 +74,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 
   return (
     <>
-      <header className="flex max-w-4xl flex-col justify-between space-y-3 px-4 lg:pt-6">
+      <header className="flex max-w-5xl flex-col justify-between space-y-3 lg:pt-6">
         <Breadcrumb className="lg:mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">
-                <HomeIcon className="size-3.5" />
+                <HugeiconsIcon icon={HomeIcon} className="size-3.5" />
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -92,7 +96,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
         </p>
       </header>
 
-      <div className="space-y-4 px-4 py-8 lg:space-y-6">
+      <div className="space-y-4 py-8 lg:space-y-6">
         {components?.map((component, index) => {
           const urlParams = new URLSearchParams();
           const compKey = component.href.split("/").pop() || "";
@@ -147,7 +151,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
                       <TooltipTrigger>
                         <Button variant="outline" asChild>
                           <Link href={iframeUrl} target="_blank">
-                            <FullscreenIcon />
+                            <HugeiconsIcon icon={FullscreenIcon} />
                           </Link>
                         </Button>
                       </TooltipTrigger>

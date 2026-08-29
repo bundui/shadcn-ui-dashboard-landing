@@ -5,7 +5,7 @@ export function ProductDetails() {
         Product detail blocks are shadcn blocks for a single product page: image
         gallery, title, price, description, options (e.g. size, color), and
         add-to-cart or buy actions. Built with React and TypeScript, they use
-        shadcn/ui components—Card, Button, Select, Tabs—and Tailwind CSS. Each
+        shadcn/ui components (Card, Button, Select, Tabs) and Tailwind CSS. Each
         block is a full product-page layout so you can focus on data and
         checkout logic instead of structure.
       </p>

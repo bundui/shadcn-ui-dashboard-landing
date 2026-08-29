@@ -1,6 +1,10 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  FolderUploadIcon as FolderUp
+} from "@hugeicons/core-free-icons";
 import * as React from "react";
 
 import { Label, Pie, PieChart } from "recharts";
@@ -24,7 +28,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { FolderUp } from "lucide-react";
 
 const chartData = [
   { source: "social", leads: 275, fill: "var(--color-social)" },
@@ -67,7 +70,7 @@ export default function LeadBySourceCardComponent() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline">
-                <FolderUp /> <span className="hidden lg:inline">Export</span>
+                <HugeiconsIcon icon={FolderUp} /> <span className="hidden lg:inline">Export</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

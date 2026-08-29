@@ -1,6 +1,11 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  CalendarIcon,
+  Download
+} from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import {
   Card,
@@ -23,7 +28,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
-import { CalendarIcon, Download } from "lucide-react";
 
 const data: Record<
   string,
@@ -124,7 +128,7 @@ export default function LineChartComponent() {
         <CardAction className="flex gap-2">
           <Select value={dateRange} onValueChange={handleDateRangeChange}>
             <SelectTrigger>
-              <CalendarIcon />
+              <HugeiconsIcon icon={CalendarIcon} />
               <div className="hidden lg:flex">
                 <SelectValue />
               </div>
@@ -138,7 +142,7 @@ export default function LineChartComponent() {
             </SelectContent>
           </Select>
           <Button variant="outline" size="icon">
-            <Download />
+            <HugeiconsIcon icon={Download} />
           </Button>
         </CardAction>
       </CardHeader>

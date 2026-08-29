@@ -36,6 +36,85 @@ interface PricingStore {
   setSelectedTab: (tab: string) => void;
 }
 
+const FEATURE_DESCS = {
+  seats: "How many developers can use the template under this license.",
+  projects: "The number of end products you can build and ship with one license.",
+  support: "How long you can reach us directly by email for help and questions.",
+  components: "Full access to every premium component, page template and block.",
+  figma: "The complete Figma design file that matches the coded template.",
+  updates: "Every future release is included, with no renewals or extra payments."
+};
+
+/** Pro and Premium share the same feature rows; only the values differ. */
+function buildFeatures(prefix: string, tier: "pro" | "premium"): PlanFeature[] {
+  const isPremium = tier === "premium";
+  return [
+    {
+      id: `${prefix}-1`,
+      featureName: "Seats",
+      featureDesc: FEATURE_DESCS.seats,
+      featureValue: isPremium ? "20" : "1",
+      isAvailable: true
+    },
+    {
+      id: `${prefix}-2`,
+      featureName: "Projects",
+      featureDesc: FEATURE_DESCS.projects,
+      featureValue: isPremium ? "Unlimited" : "3 Projects",
+      isAvailable: true
+    },
+    {
+      id: `${prefix}-3`,
+      featureName: "Email Support",
+      featureDesc: FEATURE_DESCS.support,
+      featureValue: isPremium ? "12 Months" : "6 Months",
+      isAvailable: true
+    },
+    {
+      id: `${prefix}-4`,
+      featureName: "All Pro Components",
+      featureDesc: FEATURE_DESCS.components,
+      featureValue: "true",
+      isAvailable: true
+    },
+    {
+      id: `${prefix}-5`,
+      featureName: "Figma Design Source",
+      featureDesc: FEATURE_DESCS.figma,
+      featureValue: isPremium ? "true" : "false",
+      isAvailable: isPremium
+    },
+    {
+      id: `${prefix}-6`,
+      featureName: "Lifetime Free Updates",
+      featureDesc: FEATURE_DESCS.updates,
+      featureValue: "true",
+      isAvailable: true
+    }
+  ];
+}
+
+function buildPlans(techPrefix: string): PricingPlan[] {
+  return [
+    {
+      id: `${techPrefix}-starter`,
+      name: "Pro",
+      originalPrice: 129,
+      discountedPrice: 79,
+      description: "For one developer shipping one product at a time.",
+      isPopular: true
+    },
+    {
+      id: `${techPrefix}-extended`,
+      name: "Premium",
+      originalPrice: 299,
+      discountedPrice: 199,
+      description: "For teams building together, up to 20 members.",
+      isPopular: false
+    }
+  ];
+}
+
 export const usePricingStore = create<PricingStore>((set) => ({
   technologies: [
     { id: "nextjs", name: "Next.js", isBundle: false, isComing: false },
@@ -47,228 +126,24 @@ export const usePricingStore = create<PricingStore>((set) => ({
   ],
   allData: {
     vitejs: {
-      plans: [
-        {
-          id: "react-starter",
-          name: "Starter",
-          originalPrice: 129,
-          discountedPrice: 99,
-          description: "Best suited for freelancers and individuals.",
-          isPopular: true
-        },
-        {
-          id: "react-extended",
-          name: "Extended",
-          originalPrice: 299,
-          discountedPrice: 199,
-          description: "Best suited for SaaS with redistribution license.",
-          isPopular: false
-        }
-      ],
+      plans: buildPlans("react"),
       features: {
-        "react-starter": [
-          {
-            id: "rs-1",
-            featureName: "Seats",
-            featureValue: "1",
-            isAvailable: true,
-            featureDesc: "dcsdcdcdcs"
-          },
-          { id: "rs-2", featureName: "Projects", featureValue: "3 Projects", isAvailable: true },
-          { id: "rs-3", featureName: "Email Support", featureValue: "6 Months", isAvailable: true },
-          {
-            id: "rs-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "rs-5",
-            featureName: "Figma Design Source",
-            featureValue: "false",
-            isAvailable: false
-          },
-          {
-            id: "rs-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ],
-        "react-extended": [
-          { id: "re-1", featureName: "Seats", featureValue: "10", isAvailable: true },
-          { id: "re-2", featureName: "Projects", featureValue: "Unlimited", isAvailable: true },
-          {
-            id: "re-3",
-            featureName: "Email Support",
-            featureValue: "12 Months",
-            isAvailable: true
-          },
-          {
-            id: "re-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "re-5",
-            featureName: "Figma Design Source",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "re-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ]
+        "react-starter": buildFeatures("rs", "pro"),
+        "react-extended": buildFeatures("re", "premium")
       }
     },
     nextjs: {
-      plans: [
-        {
-          id: "nextjs-starter",
-          name: "Starter",
-          originalPrice: 129,
-          discountedPrice: 99,
-          description: "Best suited for freelancers and individuals.",
-          isPopular: true
-        },
-        {
-          id: "nextjs-extended",
-          name: "Extended",
-          originalPrice: 299,
-          discountedPrice: 199,
-          description: "Best suited for SaaS with redistribution license.",
-          isPopular: false
-        }
-      ],
+      plans: buildPlans("nextjs"),
       features: {
-        "nextjs-starter": [
-          { id: "ns-1", featureName: "Seats", featureValue: "1", isAvailable: true },
-          { id: "ns-2", featureName: "Projects", featureValue: "3 Projects", isAvailable: true },
-          { id: "ns-3", featureName: "Email Support", featureValue: "6 Months", isAvailable: true },
-          {
-            id: "ns-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "ns-5",
-            featureName: "Figma Design Source",
-            featureValue: "false",
-            isAvailable: false
-          },
-          {
-            id: "ns-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ],
-        "nextjs-extended": [
-          { id: "ne-1", featureName: "Seats", featureValue: "10", isAvailable: true },
-          { id: "ne-2", featureName: "Projects", featureValue: "Unlimited", isAvailable: true },
-          {
-            id: "ne-3",
-            featureName: "Email Support",
-            featureValue: "12 Months",
-            isAvailable: true
-          },
-          {
-            id: "ne-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "ne-5",
-            featureName: "Figma Design Source",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "ne-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ]
+        "nextjs-starter": buildFeatures("ns", "pro"),
+        "nextjs-extended": buildFeatures("ne", "premium")
       }
     },
     vue: {
-      plans: [
-        {
-          id: "vue-starter",
-          name: "Starter",
-          originalPrice: 129,
-          discountedPrice: 99,
-          description: "Best suited for freelancers and individuals.",
-          isPopular: true
-        },
-        {
-          id: "vue-extended",
-          name: "Extended",
-          originalPrice: 299,
-          discountedPrice: 199,
-          description: "Best suited for SaaS with redistribution license.",
-          isPopular: false
-        }
-      ],
+      plans: buildPlans("vue"),
       features: {
-        "vue-starter": [
-          { id: "vs-1", featureName: "Seats", featureValue: "1", isAvailable: true },
-          { id: "vs-2", featureName: "Projects", featureValue: "3 Projects", isAvailable: true },
-          { id: "vs-3", featureName: "Email Support", featureValue: "6 Months", isAvailable: true },
-          {
-            id: "vs-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "vs-5",
-            featureName: "Figma Design Source",
-            featureValue: "false",
-            isAvailable: false
-          },
-          {
-            id: "vs-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ],
-        "vue-extended": [
-          { id: "ve-1", featureName: "Seats", featureValue: "10", isAvailable: true },
-          { id: "ve-2", featureName: "Projects", featureValue: "Unlimited", isAvailable: true },
-          {
-            id: "ve-3",
-            featureName: "Email Support",
-            featureValue: "12 Months",
-            isAvailable: true
-          },
-          {
-            id: "ve-4",
-            featureName: "All Pro Components",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "ve-5",
-            featureName: "Figma Design Source",
-            featureValue: "true",
-            isAvailable: true
-          },
-          {
-            id: "ve-6",
-            featureName: "Lifetime Free Updates",
-            featureValue: "true",
-            isAvailable: true
-          }
-        ]
+        "vue-starter": buildFeatures("vs", "pro"),
+        "vue-extended": buildFeatures("ve", "premium")
       }
     }
   },

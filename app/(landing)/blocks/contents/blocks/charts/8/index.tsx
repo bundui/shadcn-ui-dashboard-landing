@@ -1,6 +1,11 @@
 // @ts-nocheck
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Calendar,
+  TrendingUp
+} from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import {
   Card,
@@ -23,7 +28,6 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
-import { Calendar, TrendingUp } from "lucide-react";
 
 interface RevenueDataItem {
   day: string;
@@ -158,7 +162,7 @@ export default function RevenueStatComponent() {
         <CardAction>
           <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
             <SelectTrigger>
-              <Calendar />
+              <HugeiconsIcon icon={Calendar} />
               <SelectValue placeholder="Select period" />
             </SelectTrigger>
             <SelectContent>
@@ -175,7 +179,7 @@ export default function RevenueStatComponent() {
             {formatCurrency(total)}
           </span>
           <div className="flex items-center gap-1 text-sm">
-            <TrendingUp className="size-4 text-green-600" />
+            <HugeiconsIcon icon={TrendingUp} className="size-4 text-green-600" />
             <span className="text-success font-medium">
               {percentageChange}%
             </span>
